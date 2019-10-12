@@ -117,8 +117,8 @@
 				FF28D3992351B8ED00336287 /* Assets.xcassets */,
 				FF28D39B2351B8ED00336287 /* LaunchScreen.storyboard */,
 				FF28D3962351B8EB00336287 /* Main.storyboard */,
-				FF28D3C02351BBA600336287 /* Moudle */,
-				FF6283F62351EBBA004916F1 /* Service */,
+				FF28D3C02351BBA600336287 /* Modules */,
+				FF6283F62351EBBA004916F1 /* Services */,
 			);
 			path = timeline;
 			sourceTree = "<group>";
@@ -141,30 +141,30 @@
 			path = timelineUITests;
 			sourceTree = "<group>";
 		};
-		FF28D3C02351BBA600336287 /* Moudle */ = {
+		FF28D3C02351BBA600336287 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Moudle;
+			path = Modules;
 			sourceTree = "<group>";
 		};
-		FF6283F62351EBBA004916F1 /* Service */ = {
+		FF6283F62351EBBA004916F1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				FFCCC8D52352090F00F1019C /* Core */,
-				FF6283FD2351ED25004916F1 /* Api */,
+				FF6283FD2351ED25004916F1 /* API */,
 			);
-			path = Service;
+			path = Services;
 			sourceTree = "<group>";
 		};
-		FF6283FD2351ED25004916F1 /* Api */ = {
+		FF6283FD2351ED25004916F1 /* API */ = {
 			isa = PBXGroup;
 			children = (
 				FF6283FE2351ED8E004916F1 /* Albums.swift */,
 				FFCCC8D12352071800F1019C /* Photos.swift */,
 				FFCCC8D32352087F00F1019C /* BaseStruct.swift */,
 			);
-			path = Api;
+			path = API;
 			sourceTree = "<group>";
 		};
 		FFCCC8D52352090F00F1019C /* Core */ = {
