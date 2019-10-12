@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		FF28D3912351B8EB00336287 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF28D3902351B8EB00336287 /* AppDelegate.swift */; };
 		FF28D3932351B8EB00336287 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF28D3922351B8EB00336287 /* SceneDelegate.swift */; };
-		FF28D3952351B8EB00336287 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF28D3942351B8EB00336287 /* ViewController.swift */; };
 		FF28D3982351B8EB00336287 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF28D3962351B8EB00336287 /* Main.storyboard */; };
 		FF28D39A2351B8ED00336287 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF28D3992351B8ED00336287 /* Assets.xcassets */; };
 		FF28D39D2351B8ED00336287 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF28D39B2351B8ED00336287 /* LaunchScreen.storyboard */; };
@@ -43,7 +42,6 @@
 		FF28D38D2351B8EB00336287 /* timeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF28D3902351B8EB00336287 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF28D3922351B8EB00336287 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FF28D3942351B8EB00336287 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FF28D3972351B8EB00336287 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF28D3992351B8ED00336287 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF28D39C2351B8ED00336287 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
