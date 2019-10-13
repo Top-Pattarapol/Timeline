@@ -133,36 +133,38 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
       return UITableViewCell()
     }
 
-    if !data.isLoadPhoto {
-      loadPhoto(id: data.id, indexPath: indexPath)
-    }
+
     
     cell.titleLabel.text = data.title
-
     cell.timeLabel.text = getTime()
 
-    if let photo = data.photoList?[safe: 0] {
-      cell.image1.isHidden = false
-      cell.image1.kf.setImage(with: URL(string: photo))
+    if !data.isLoadPhoto {
+      loadPhoto(id: data.id, indexPath: indexPath)
     } else {
-      cell.image1.isHidden = true
-    }
+      if let photo = data.photoList?[safe: 0] {
 
-    if let photo = data.photoList?[safe: 1] {
-      cell.image2.isHidden = false
-      cell.image2.kf.setImage(with: URL(string: photo))
-    } else {
-      cell.image2.isHidden = true
-    }
+        cell.image1.kf.setImage(with: URL(string: photo), placeholder: UIImage(named: "cart"))
+        cell.image1.isHidden = false
+      } else {
+        cell.image1.isHidden = true
+      }
 
-    if let photo = data.photoList?[safe: 2] {
-      cell.image3.isHidden = false
-      cell.image3.kf.setImage(with: URL(string: photo))
-    } else {
-      cell.image3.isHidden = true
-    }
+      if let photo = data.photoList?[safe: 1] {
 
-    
+        cell.image2.kf.setImage(with: URL(string: photo), placeholder: UIImage(named: "cart"))
+        cell.image2.isHidden = false
+      } else {
+        cell.image2.isHidden = true
+      }
+
+      if let photo = data.photoList?[safe: 2] {
+
+        cell.image3.kf.setImage(with: URL(string: photo), placeholder: UIImage(named: "cart"))
+        cell.image3.isHidden = false
+      } else {
+        cell.image3.isHidden = true
+      }
+    }
     return cell
 
   }
