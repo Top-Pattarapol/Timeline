@@ -15,6 +15,7 @@ import UIKit
 protocol PostBusinessLogic
 {
   func getPost(request: Post.Post.Request)
+  func getFullImage(request: Post.FullImage.Request)
 }
 
 protocol PostDataStore
@@ -39,5 +40,10 @@ class PostInteractor: PostBusinessLogic, PostDataStore
   {
     let response = Post.Post.Response(title: title, photoList: photoList ?? [])
     presenter?.presentPost(response: response)
+  }
+
+  func getFullImage(request: Post.FullImage.Request) {
+    let response = Post.FullImage.Response(imageUrl: photoList?[safe: request.index] ?? "")
+    presenter?.presentFullImage(response: response)
   }
 }

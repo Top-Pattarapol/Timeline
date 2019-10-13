@@ -32,4 +32,19 @@ enum Post
       let photoList: [String]
     }
   }
+
+  enum FullImage {
+    struct Request
+    {
+      let index: Int
+    }
+    struct Response
+    {
+      let imageUrl: String
+    }
+    struct ViewModel
+    {
+      let imageUrl: String
+    }
+  }
 }

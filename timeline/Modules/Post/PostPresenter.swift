@@ -15,6 +15,7 @@ import UIKit
 protocol PostPresentationLogic
 {
   func presentPost(response: Post.Post.Response)
+  func presentFullImage(response: Post.FullImage.Response)
 }
 
 class PostPresenter: PostPresentationLogic
@@ -27,5 +28,10 @@ class PostPresenter: PostPresentationLogic
   {
     let viewModel = Post.Post.ViewModel(title: response.title, photoList: response.photoList)
     viewController?.displayPost(viewModel: viewModel)
+  }
+
+  func presentFullImage(response: Post.FullImage.Response) {
+    let viewModel = Post.FullImage.ViewModel(imageUrl: response.imageUrl)
+    viewController?.displayFullImage(viewModel: viewModel)
   }
 }

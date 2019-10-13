@@ -120,13 +120,72 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="hj8-As-KGA"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="AVH-fB-1uC"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Czj-rR-cbW">
+                                <rect key="frame" x="0.0" y="152.5" width="414" height="233"/>
+                                <connections>
+                                    <action selector="imageTab1:" destination="EMp-L3-AVC" eventType="touchUpInside" id="N48-oE-EDj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rtz-lR-AKt">
+                                <rect key="frame" x="0.0" y="389.5" width="414" height="233"/>
+                                <connections>
+                                    <action selector="imageTab2:" destination="EMp-L3-AVC" eventType="touchUpInside" id="KbU-Aa-FhW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cU6-0z-spj">
+                                <rect key="frame" x="0.0" y="626.5" width="414" height="232.5"/>
+                                <connections>
+                                    <action selector="imageTab3:" destination="EMp-L3-AVC" eventType="touchUpInside" id="3My-5G-ehY"/>
+                                </connections>
+                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3iE-on-GkY">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vwv-7E-iEt">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4o-7x-9iE">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                        <connections>
+                                            <action selector="closeFullImage:" destination="EMp-L3-AVC" eventType="touchUpInside" id="rxv-nR-qL7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.23753210616438356" alpha="0.91248394691780821" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Vwv-7E-iEt" firstAttribute="top" secondItem="3iE-on-GkY" secondAttribute="top" id="15S-6m-MaC"/>
+                                    <constraint firstItem="x4o-7x-9iE" firstAttribute="leading" secondItem="3iE-on-GkY" secondAttribute="leading" id="2D2-wP-B4l"/>
+                                    <constraint firstAttribute="bottom" secondItem="x4o-7x-9iE" secondAttribute="bottom" id="6mo-Sn-uVV"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vwv-7E-iEt" secondAttribute="trailing" id="CJu-17-vbA"/>
+                                    <constraint firstItem="x4o-7x-9iE" firstAttribute="top" secondItem="3iE-on-GkY" secondAttribute="top" id="GVe-zW-Gh9"/>
+                                    <constraint firstAttribute="bottom" secondItem="Vwv-7E-iEt" secondAttribute="bottom" id="P5y-j5-xUn"/>
+                                    <constraint firstAttribute="trailing" secondItem="x4o-7x-9iE" secondAttribute="trailing" id="hSt-Fl-cY5"/>
+                                    <constraint firstItem="Vwv-7E-iEt" firstAttribute="leading" secondItem="3iE-on-GkY" secondAttribute="leading" id="pgn-a8-AZe"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.26666378969999999" green="0.26666471359999999" blue="0.26666677" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="cU6-0z-spj" firstAttribute="leading" secondItem="wE4-yN-tAj" secondAttribute="leading" id="04Y-Ji-Yaa"/>
+                            <constraint firstItem="Rtz-lR-AKt" firstAttribute="bottom" secondItem="Ldj-52-wNU" secondAttribute="bottom" id="15q-wY-MGA"/>
+                            <constraint firstItem="Rtz-lR-AKt" firstAttribute="leading" secondItem="Ldj-52-wNU" secondAttribute="leading" id="Fij-2j-FGq"/>
+                            <constraint firstItem="cU6-0z-spj" firstAttribute="trailing" secondItem="wE4-yN-tAj" secondAttribute="trailing" id="G1k-Q2-e85"/>
+                            <constraint firstItem="3iE-on-GkY" firstAttribute="top" secondItem="azg-C1-y7l" secondAttribute="top" id="RAu-vu-9bb"/>
+                            <constraint firstItem="Czj-rR-cbW" firstAttribute="leading" secondItem="eXJ-bF-5SG" secondAttribute="leading" id="RxR-My-UJt"/>
+                            <constraint firstItem="cU6-0z-spj" firstAttribute="top" secondItem="wE4-yN-tAj" secondAttribute="top" id="TBZ-PV-jzr"/>
                             <constraint firstItem="z1c-4K-4yc" firstAttribute="top" secondItem="azg-C1-y7l" secondAttribute="top" id="XWi-rs-KeZ"/>
+                            <constraint firstItem="Czj-rR-cbW" firstAttribute="bottom" secondItem="eXJ-bF-5SG" secondAttribute="bottom" id="asa-hm-zy3"/>
+                            <constraint firstItem="3iE-on-GkY" firstAttribute="leading" secondItem="azg-C1-y7l" secondAttribute="leading" id="dV6-sQ-HnP"/>
+                            <constraint firstItem="cU6-0z-spj" firstAttribute="bottom" secondItem="wE4-yN-tAj" secondAttribute="bottom" id="dWJ-mk-58A"/>
+                            <constraint firstItem="Czj-rR-cbW" firstAttribute="top" secondItem="eXJ-bF-5SG" secondAttribute="top" id="dnL-Px-Nob"/>
+                            <constraint firstItem="Rtz-lR-AKt" firstAttribute="top" secondItem="Ldj-52-wNU" secondAttribute="top" id="ejI-1D-UH3"/>
+                            <constraint firstItem="Rtz-lR-AKt" firstAttribute="trailing" secondItem="Ldj-52-wNU" secondAttribute="trailing" id="fGS-Z7-DiW"/>
+                            <constraint firstItem="azg-C1-y7l" firstAttribute="trailing" secondItem="3iE-on-GkY" secondAttribute="trailing" id="mSf-34-CRD"/>
+                            <constraint firstItem="Czj-rR-cbW" firstAttribute="trailing" secondItem="eXJ-bF-5SG" secondAttribute="trailing" id="n4n-VL-eDG"/>
                             <constraint firstItem="azg-C1-y7l" firstAttribute="trailing" secondItem="z1c-4K-4yc" secondAttribute="trailing" id="qtk-Rf-hVA"/>
                             <constraint firstItem="z1c-4K-4yc" firstAttribute="leading" secondItem="azg-C1-y7l" secondAttribute="leading" id="tLK-dP-WVs"/>
                             <constraint firstItem="azg-C1-y7l" firstAttribute="bottom" secondItem="z1c-4K-4yc" secondAttribute="bottom" id="uVA-pz-t45"/>
+                            <constraint firstItem="azg-C1-y7l" firstAttribute="bottom" secondItem="3iE-on-GkY" secondAttribute="bottom" id="vBs-HJ-f8J"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="azg-C1-y7l"/>
                     </view>
@@ -135,6 +194,8 @@
                         <outlet property="image1" destination="eXJ-bF-5SG" id="TZ0-Np-Y2I"/>
                         <outlet property="image2" destination="Ldj-52-wNU" id="cVV-ga-BCz"/>
                         <outlet property="image3" destination="wE4-yN-tAj" id="Bqg-zn-2gd"/>
+                        <outlet property="imageFull" destination="Vwv-7E-iEt" id="1Eo-x7-CXU"/>
+                        <outlet property="imageFullVIew" destination="3iE-on-GkY" id="TlX-Ko-6Ff"/>
                         <outlet property="timeLabel" destination="Mwk-nz-aol" id="DAV-gJ-s2L"/>
                         <outlet property="titleLabel" destination="XZZ-rR-ez4" id="d9c-0u-HID"/>
                     </connections>

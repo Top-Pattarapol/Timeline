@@ -16,6 +16,7 @@ import Kingfisher
 protocol PostDisplayLogic: class
 {
   func displayPost(viewModel: Post.Post.ViewModel)
+  func displayFullImage(viewModel: Post.FullImage.ViewModel)
 }
 
 class PostViewController: UIViewController, PostDisplayLogic
@@ -81,11 +82,34 @@ class PostViewController: UIViewController, PostDisplayLogic
   @IBOutlet var image1: UIImageView!
   @IBOutlet var image2: UIImageView!
   @IBOutlet var image3: UIImageView!
+  @IBOutlet var imageFullVIew: UIView!
+  @IBOutlet var imageFull: UIImageView!
+
+  @IBAction func imageTab1(_ sender: Any) {
+    showFullImage(index: 0)
+  }
   
+  @IBAction func imageTab2(_ sender: Any) {
+    showFullImage(index: 1)
+  }
+
+  @IBAction func imageTab3(_ sender: Any) {
+    showFullImage(index: 2)
+  }
+
+  @IBAction func closeFullImage(_ sender: Any) {
+    imageFullVIew.isHidden = true
+  }
+
   func getPost()
   {
     let request = Post.Post.Request()
     interactor?.getPost(request: request)
+  }
+
+  func showFullImage(index: Int) {
+    let request = Post.FullImage.Request(index: index)
+    interactor?.getFullImage(request: request)
   }
   
   fileprivate func setImage(view: UIImageView, viewModel: Post.Post.ViewModel, index: Int) {
@@ -102,6 +126,11 @@ class PostViewController: UIViewController, PostDisplayLogic
     setImage(view: image1,viewModel: viewModel, index: 0)
     setImage(view: image2,viewModel: viewModel, index: 1)
     setImage(view: image3,viewModel: viewModel, index: 2)
+  }
+
+  func displayFullImage(viewModel: Post.FullImage.ViewModel) {
+    imageFull.kf.setImage(with: URL(string: viewModel.imageUrl))
+    imageFullVIew.isHidden = false
   }
 
 }
