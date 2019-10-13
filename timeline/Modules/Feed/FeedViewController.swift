@@ -107,15 +107,8 @@ class FeedViewController: UIViewController, FeedDisplayLogic
   }
 
   func displayPhoto(viewModel: Feed.Photo.ViewModel) {
-
-    if let data = feedData {
-      for (index, item) in data.enumerated() {
-        if item.id == viewModel.id {
-          feedData?[index].photoList = viewModel.photoList
-          feedData?[index].isLoadPhoto = true
-        }
-      }
-    }
+    feedData?[viewModel.indexPath.row].photoList = viewModel.photoList
+    feedData?[viewModel.indexPath.row].isLoadPhoto = true
     tableView.reloadRows(at: [viewModel.indexPath], with: .fade)
   }
 

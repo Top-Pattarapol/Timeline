@@ -35,9 +35,12 @@ class FeedPresenter: FeedPresentationLogic
 
   func presentPhoto(response: Feed.Photo.Response) {
 
-    let photos = response.photo.result.map { item -> String in
-      return item.url
+    var photos: [String] = []
+    response.photo.result.forEach { item in
+      if photos.count == 3 { return }
+      photos.append(item.thumbnail)
     }
+
     let viewModel = Feed.Photo.ViewModel(id: response.id, photoList: photos, indexPath: response.indexPath)
     viewController?.displayPhoto(viewModel: viewModel)
   }
