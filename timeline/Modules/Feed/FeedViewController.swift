@@ -116,8 +116,6 @@ class FeedViewController: UIViewController, FeedDisplayLogic
     let date = Date()
     let formatter = DateFormatter()
     formatter.dateFormat = "h:mm a"
-    formatter.amSymbol = "AM"
-    formatter.pmSymbol = "PM"
     return formatter.string(from: date)
   }
 }
