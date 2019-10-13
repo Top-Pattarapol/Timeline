@@ -1,9 +1,7 @@
-//
-//  File.swift
-//  timeline
-//
-//  Created by pattarapol sawasdee on 13/10/2562 BE.
-//  Copyright © 2562 pattarapol. All rights reserved.
-//
+extension Collection {
 
-import Foundation
+    /// Returns the element at the specified index if it is within bounds, otherwise nil.
+    subscript (safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}

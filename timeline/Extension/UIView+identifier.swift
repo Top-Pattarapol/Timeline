@@ -1,9 +1,12 @@
-//
-//  UIView+identifier.swift
-//  timeline
-//
-//  Created by pattarapol sawasdee on 12/10/2562 BE.
-//  Copyright © 2562 pattarapol. All rights reserved.
-//
+import UIKit
 
-import Foundation
+extension UIView {
+
+  @inline(__always) class func nib(bundle: Bundle? = nil) -> UINib {
+    return UINib(nibName: identifier, bundle: bundle)
+  }
+
+  static var identifier: String {
+    return String(describing: self)
+  }
+}
