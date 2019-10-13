@@ -14,28 +14,30 @@ import UIKit
 
 protocol PostBusinessLogic
 {
-  func doSomething(request: Post.Something.Request)
+  func getPost(request: Post.Post.Request)
 }
 
 protocol PostDataStore
 {
   //var name: String { get set }
+  var title: String { get set }
+  var photoList: [String]? { get set }
+
 }
 
 class PostInteractor: PostBusinessLogic, PostDataStore
 {
   var presenter: PostPresentationLogic?
   var worker: PostWorker?
+  var title: String = ""
+  var photoList: [String]?
   //var name: String = ""
   
   // MARK: Do something
   
-  func doSomething(request: Post.Something.Request)
+  func getPost(request: Post.Post.Request)
   {
-    worker = PostWorker()
-    worker?.doSomeWork()
-    
-    let response = Post.Something.Response()
-    presenter?.presentSomething(response: response)
+    let response = Post.Post.Response(title: title, photoList: photoList ?? [])
+    presenter?.presentPost(response: response)
   }
 }

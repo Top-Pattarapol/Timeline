@@ -51,6 +51,20 @@ enum Feed
     }
   }
 
+  enum Post
+  {
+    struct Request
+    {
+      let id: String
+    }
+    struct Response
+    {
+    }
+    struct ViewModel
+    {
+    }
+  }
+
   struct PresentFeed {
     let id, title: String
     var photoList: [String]?

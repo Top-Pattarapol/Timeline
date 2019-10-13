@@ -16,20 +16,21 @@ protocol FeedBusinessLogic
 {
   func getAlbums(request: Feed.AlbumFeed.Request)
   func getPhoto(request: Feed.Photo.Request)
+  func setDataPostView(request: Feed.Post.Request)
 }
 
 protocol FeedDataStore
 {
   var albums: Albums? { get set }
+  var dataForPostView: Feed.PresentFeed? { get set }
 }
 
 class FeedInteractor: FeedBusinessLogic, FeedDataStore
 {
-
   var presenter: FeedPresentationLogic?
   var worker: FeedWorker?
   var albums: Albums?
-//  var name: String = ""
+  var dataForPostView: Feed.PresentFeed?
   
   // MARK: Do something
 
@@ -47,10 +48,30 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore
   func getPhoto(request: Feed.Photo.Request) {
     worker = FeedWorker()
     worker?.getPhoto(albumId: request.id, success: { data in
+      if let newAlbms = self.albums?.result {
+        for (index, item) in newAlbms.enumerated() {
+          if item.id == request.id {
+            self.albums?.result[index].photos = data
+          }
+        }
+      }
       let response = Feed.Photo.Response(id: request.id, photo: data, indexPath: request.indexPath)
       self.presenter?.presentPhoto(response: response)
     }, error: { _ in
       // TODO : handle error
     })
+  }
+
+  func setDataPostView(request: Feed.Post.Request) {
+    guard let albums = albums?.result.filter({$0.id == request.id}), let album = albums.first else {
+      return
+    }
+    var data = Feed.PresentFeed(id: request.id, title: album.title)
+    data.photoList = album.photos?.result.map({ item -> String in
+      return item.url
+    })
+    dataForPostView = data
+    presenter?.presentPostView(response: Feed.Post.Response())
+    
   }
 }

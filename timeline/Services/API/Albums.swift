@@ -7,7 +7,7 @@ struct AlbumsRequest: RequestProtocol {
 // MARK: - Response
 
 struct Albums: Decodable {
-  let result: [Album]
+  var result: [Album]
   
   enum CodingKeys: String, CodingKey {
     case result
@@ -17,6 +17,7 @@ struct Albums: Decodable {
 struct Album: Decodable {
   let id, userID, title: String
   let links: Links
+  var photos: Photos?
   
   enum CodingKeys: String, CodingKey {
     case id

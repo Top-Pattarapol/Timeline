@@ -16,16 +16,20 @@ enum Post
 {
   // MARK: Use cases
   
-  enum Something
+  enum Post
   {
     struct Request
     {
     }
     struct Response
     {
+      let title: String
+      let photoList: [String]
     }
     struct ViewModel
     {
+      let title: String
+      let photoList: [String]
     }
   }
 }

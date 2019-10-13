@@ -15,6 +15,7 @@ import UIKit
 @objc protocol FeedRoutingLogic
 {
   //func routeToSomewhere(segue: UIStoryboardSegue?)
+  func routeToPost(segue: UIStoryboardSegue?)
 }
 
 protocol FeedDataPassing
@@ -28,33 +29,32 @@ class FeedRouter: NSObject, FeedRoutingLogic, FeedDataPassing
   var dataStore: FeedDataStore?
   
   // MARK: Routing
-  
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
+
+  func routeToPost(segue: UIStoryboardSegue?) {
+    if let segue = segue {
+      let destinationVC = segue.destination as! PostViewController
+      var destinationDS = destinationVC.router!.dataStore!
+      passDataToPost(source: dataStore!, destination: &destinationDS)
+    } else {
+      let storyboard = UIStoryboard(name: "Main", bundle: nil)
+      let destinationVC = storyboard.instantiateViewController(withIdentifier: "PostViewController") as! PostViewController
+      var destinationDS = destinationVC.router!.dataStore!
+      passDataToPost(source: dataStore!, destination: &destinationDS)
+      navigateToPost(source: viewController!, destination: destinationVC)
+    }
+  }
 
   // MARK: Navigation
-  
-  //func navigateToSomewhere(source: FeedViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
+
+  func navigateToPost(source: FeedViewController, destination: PostViewController) {
+    source.show(destination, sender: nil)
+  }
   
   // MARK: Passing data
-  
-  //func passDataToSomewhere(source: FeedDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+
+  func passDataToPost(source: FeedDataStore, destination: inout PostDataStore) {
+    destination.title = source.dataForPostView?.title ?? ""
+    destination.photoList = source.dataForPostView?.photoList
+  }
+
 }

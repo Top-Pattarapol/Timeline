@@ -14,7 +14,7 @@ import UIKit
 
 protocol PostPresentationLogic
 {
-  func presentSomething(response: Post.Something.Response)
+  func presentPost(response: Post.Post.Response)
 }
 
 class PostPresenter: PostPresentationLogic
@@ -23,9 +23,9 @@ class PostPresenter: PostPresentationLogic
   
   // MARK: Do something
   
-  func presentSomething(response: Post.Something.Response)
+  func presentPost(response: Post.Post.Response)
   {
-    let viewModel = Post.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+    let viewModel = Post.Post.ViewModel(title: response.title, photoList: response.photoList)
+    viewController?.displayPost(viewModel: viewModel)
   }
 }

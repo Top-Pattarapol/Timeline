@@ -11,10 +11,11 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol PostDisplayLogic: class
 {
-  func displaySomething(viewModel: Post.Something.ViewModel)
+  func displayPost(viewModel: Post.Post.ViewModel)
 }
 
 class PostViewController: UIViewController, PostDisplayLogic
@@ -69,21 +70,38 @@ class PostViewController: UIViewController, PostDisplayLogic
   override func viewDidLoad()
   {
     super.viewDidLoad()
-    doSomething()
+    getPost()
   }
   
   // MARK: Do something
   
   //@IBOutlet weak var nameTextField: UITextField!
+  @IBOutlet var timeLabel: UILabel!
+  @IBOutlet var titleLabel: UILabel!
+  @IBOutlet var image1: UIImageView!
+  @IBOutlet var image2: UIImageView!
+  @IBOutlet var image3: UIImageView!
   
-  func doSomething()
+  func getPost()
   {
-    let request = Post.Something.Request()
-    interactor?.doSomething(request: request)
+    let request = Post.Post.Request()
+    interactor?.getPost(request: request)
   }
   
-  func displaySomething(viewModel: Post.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
+  fileprivate func setImage(view: UIImageView, viewModel: Post.Post.ViewModel, index: Int) {
+    if let photo = viewModel.photoList[safe: index] {
+      view.kf.setImage(with: URL(string: photo))
+    } else {
+      view.isHidden = true
+    }
   }
+
+  func displayPost(viewModel: Post.Post.ViewModel)
+  {
+    titleLabel.text = viewModel.title
+    setImage(view: image1,viewModel: viewModel, index: 0)
+    setImage(view: image2,viewModel: viewModel, index: 1)
+    setImage(view: image3,viewModel: viewModel, index: 2)
+  }
+
 }

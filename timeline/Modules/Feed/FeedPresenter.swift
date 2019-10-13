@@ -16,6 +16,7 @@ protocol FeedPresentationLogic
 {
   func presentFeed(response: Feed.AlbumFeed.Response)
   func presentPhoto(response: Feed.Photo.Response)
+  func presentPostView(response: Feed.Post.Response)
 }
 
 class FeedPresenter: FeedPresentationLogic
@@ -38,11 +39,15 @@ class FeedPresenter: FeedPresentationLogic
     var photos: [String] = []
     response.photo.result.forEach { item in
       if photos.count == 3 { return }
-      photos.append(item.thumbnail)
+      photos.append(item.url)
     }
 
     let viewModel = Feed.Photo.ViewModel(id: response.id, photoList: photos, indexPath: response.indexPath)
     viewController?.displayPhoto(viewModel: viewModel)
+  }
+
+  func presentPostView(response: Feed.Post.Response) {
+    viewController?.routeToPost(viewModel: Feed.Post.ViewModel())
   }
   
 }

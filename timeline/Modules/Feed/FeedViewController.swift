@@ -17,6 +17,7 @@ protocol FeedDisplayLogic: class
 {
   func displayFeed(viewModel: Feed.AlbumFeed.ViewModel)
   func displayPhoto(viewModel: Feed.Photo.ViewModel)
+  func routeToPost(viewModel: Feed.Post.ViewModel)
 }
 
 class FeedViewController: UIViewController, FeedDisplayLogic
@@ -112,6 +113,10 @@ class FeedViewController: UIViewController, FeedDisplayLogic
     tableView.reloadRows(at: [viewModel.indexPath], with: .fade)
   }
 
+  func routeToPost(viewModel: Feed.Post.ViewModel) {
+    performSegue(withIdentifier: "Post", sender: nil)
+  }
+
   func getTime() -> String {
     let date = Date()
     let formatter = DateFormatter()
@@ -143,7 +148,7 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
     } else {
       if let photo = data.photoList?[safe: 0] {
 
-        cell.image1.kf.setImage(with: URL(string: photo), placeholder: UIImage(named: "cart"))
+        cell.image1.kf.setImage(with: URL(string: photo))
         cell.image1.isHidden = false
       } else {
         cell.image1.isHidden = true
@@ -151,7 +156,7 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
 
       if let photo = data.photoList?[safe: 1] {
 
-        cell.image2.kf.setImage(with: URL(string: photo), placeholder: UIImage(named: "cart"))
+        cell.image2.kf.setImage(with: URL(string: photo))
         cell.image2.isHidden = false
       } else {
         cell.image2.isHidden = true
@@ -159,7 +164,7 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
 
       if let photo = data.photoList?[safe: 2] {
 
-        cell.image3.kf.setImage(with: URL(string: photo), placeholder: UIImage(named: "cart"))
+        cell.image3.kf.setImage(with: URL(string: photo))
         cell.image3.isHidden = false
       } else {
         cell.image3.isHidden = true
@@ -170,15 +175,11 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
   }
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //    guard let item = feedViewModel?.feeds[indexPath.row], let feedType = FeedType(rawValue: item.feedType) else {
-    //      return
-    //    }
-    //    switch feedType {
-    //    case FeedType.market:
-    //      tabBarController?.selectedIndex = 3
-    //    default:
-    //      let request = Feed.SelectCell.Request(feedId: item.feedId)
-    //      interactor?.setSelectCell(request: request)
-    //    }
+    guard let item = feedData?[indexPath.row] else {
+      return
+    }
+    let request = Feed.Post.Request(id: item.id)
+    interactor?.setDataPostView(request: request)
+
   }
 }
