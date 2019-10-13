@@ -23,18 +23,18 @@ class WebService {
 }
 
 enum Host {
-  case gorest
+  case Gorest
   
   var baseURL: String {
     switch self {
-    case .gorest:
+    case .Gorest:
       return "https://gorest.co.in"
     }
   }
   
   var baseHeaders: [String: String] {
     switch self {
-    case .gorest:
+    case .Gorest:
       return ["Authorization": "Bearer d3wjvB4clXkOAUmfKQSG5U54ERD9Ncp60C04",]
     }
   }
