@@ -14,7 +14,8 @@ import UIKit
 
 protocol FeedPresentationLogic
 {
-  func presentSomething(response: Feed.Something.Response)
+  func presentFeed(response: Feed.AlbumFeed.Response)
+  func presentPhoto(response: Feed.Photo.Response)
 }
 
 class FeedPresenter: FeedPresentationLogic
@@ -22,10 +23,23 @@ class FeedPresenter: FeedPresentationLogic
   weak var viewController: FeedDisplayLogic?
   
   // MARK: Do something
-  
-  func presentSomething(response: Feed.Something.Response)
-  {
-    let viewModel = Feed.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+
+  func presentFeed(response: Feed.AlbumFeed.Response) {
+
+    let presentFeedData = response.albums.result.map { item -> Feed.PresentFeed in
+      return Feed.PresentFeed(id: item.id, title: item.title)
+    }
+    let viewModel = Feed.AlbumFeed.ViewModel(data: presentFeedData)
+    viewController?.displayFeed(viewModel: viewModel)
   }
+
+  func presentPhoto(response: Feed.Photo.Response) {
+
+    let photos = response.photo.result.map { item -> String in
+      return item.url
+    }
+    let viewModel = Feed.Photo.ViewModel(id: response.id, photoList: photos, indexPath: response.indexPath)
+    viewController?.displayPhoto(viewModel: viewModel)
+  }
+  
 }

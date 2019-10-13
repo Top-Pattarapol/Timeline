@@ -11,10 +11,12 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol FeedDisplayLogic: class
 {
-  func displaySomething(viewModel: Feed.Something.ViewModel)
+  func displayFeed(viewModel: Feed.AlbumFeed.ViewModel)
+  func displayPhoto(viewModel: Feed.Photo.ViewModel)
 }
 
 class FeedViewController: UIViewController, FeedDisplayLogic
@@ -69,21 +71,121 @@ class FeedViewController: UIViewController, FeedDisplayLogic
   override func viewDidLoad()
   {
     super.viewDidLoad()
-    doSomething()
+    setupTableView()
+    loadFeed()
   }
   
   // MARK: Do something
   
   //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
-  {
-    let request = Feed.Something.Request()
-    interactor?.doSomething(request: request)
+  @IBOutlet var navBar: UINavigationItem!
+  @IBOutlet var searchBar: UISearchBar!
+  @IBOutlet var tableView: UITableView!
+
+  var feedData: [Feed.PresentFeed]?
+
+  func setupTableView() {
+    tableView.registerNib(FeedTableViewCell.self)
+    tableView.delegate = self
+    tableView.dataSource = self
+    tableView.separatorStyle = .none
   }
-  
-  func displaySomething(viewModel: Feed.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
+
+  func loadFeed() {
+    let request = Feed.AlbumFeed.Request()
+    interactor?.getAlbums(request: request)
+  }
+
+  func displayFeed(viewModel: Feed.AlbumFeed.ViewModel) {
+    feedData = viewModel.data
+    tableView.reloadData()
+  }
+
+  func loadPhoto(id: String, indexPath: IndexPath) {
+    let request = Feed.Photo.Request(id: id, indexPath: indexPath)
+    interactor?.getPhoto(request: request)
+  }
+
+  func displayPhoto(viewModel: Feed.Photo.ViewModel) {
+
+    if let data = feedData {
+      for (index, item) in data.enumerated() {
+        if item.id == viewModel.id {
+          feedData?[index].photoList = viewModel.photoList
+          feedData?[index].isLoadPhoto = true
+        }
+      }
+    }
+    tableView.reloadRows(at: [viewModel.indexPath], with: .fade)
+  }
+
+  func getTime() -> String {
+    let date = Date()
+    let formatter = DateFormatter()
+    formatter.dateFormat = "h:mm a"
+    formatter.amSymbol = "AM"
+    formatter.pmSymbol = "PM"
+    return formatter.string(from: date)
+  }
+}
+
+extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
+
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return feedData?.count ?? 0
+  }
+
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.deque(FeedTableViewCell.self, for: indexPath)
+
+    guard let data = feedData?[safe: indexPath.row] else {
+      return UITableViewCell()
+    }
+
+    if !data.isLoadPhoto {
+      loadPhoto(id: data.id, indexPath: indexPath)
+    }
+    
+    cell.titleLabel.text = data.title
+
+    cell.timeLabel.text = getTime()
+
+    if let photo = data.photoList?[safe: 0] {
+      cell.image1.isHidden = false
+      cell.image1.kf.setImage(with: URL(string: photo))
+    } else {
+      cell.image1.isHidden = true
+    }
+
+    if let photo = data.photoList?[safe: 1] {
+      cell.image2.isHidden = false
+      cell.image2.kf.setImage(with: URL(string: photo))
+    } else {
+      cell.image2.isHidden = true
+    }
+
+    if let photo = data.photoList?[safe: 2] {
+      cell.image3.isHidden = false
+      cell.image3.kf.setImage(with: URL(string: photo))
+    } else {
+      cell.image3.isHidden = true
+    }
+
+    
+    return cell
+
+  }
+
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //    guard let item = feedViewModel?.feeds[indexPath.row], let feedType = FeedType(rawValue: item.feedType) else {
+    //      return
+    //    }
+    //    switch feedType {
+    //    case FeedType.market:
+    //      tabBarController?.selectedIndex = 3
+    //    default:
+    //      let request = Feed.SelectCell.Request(feedId: item.feedId)
+    //      interactor?.setSelectCell(request: request)
+    //    }
   }
 }

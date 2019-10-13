@@ -14,28 +14,43 @@ import UIKit
 
 protocol FeedBusinessLogic
 {
-  func doSomething(request: Feed.Something.Request)
+  func getAlbums(request: Feed.AlbumFeed.Request)
+  func getPhoto(request: Feed.Photo.Request)
 }
 
 protocol FeedDataStore
 {
-  //var name: String { get set }
+  var albums: Albums? { get set }
 }
 
 class FeedInteractor: FeedBusinessLogic, FeedDataStore
 {
+
   var presenter: FeedPresentationLogic?
   var worker: FeedWorker?
-  //var name: String = ""
+  var albums: Albums?
+//  var name: String = ""
   
   // MARK: Do something
-  
-  func doSomething(request: Feed.Something.Request)
-  {
+
+  func getAlbums(request: Feed.AlbumFeed.Request) {
     worker = FeedWorker()
-    worker?.doSomeWork()
-    
-    let response = Feed.Something.Response()
-    presenter?.presentSomething(response: response)
+    worker?.getAlbums(success: { data in
+      self.albums = data
+      let response = Feed.AlbumFeed.Response(albums: data)
+      self.presenter?.presentFeed(response: response)
+    }, error: { _ in
+      // TODO : handle error
+    })
+  }
+
+  func getPhoto(request: Feed.Photo.Request) {
+    worker = FeedWorker()
+    worker?.getPhoto(albumId: request.id, success: { data in
+      let response = Feed.Photo.Response(id: request.id, photo: data, indexPath: request.indexPath)
+      self.presenter?.presentPhoto(response: response)
+    }, error: { _ in
+      // TODO : handle error
+    })
   }
 }

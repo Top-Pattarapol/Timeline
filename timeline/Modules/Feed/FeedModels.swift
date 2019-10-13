@@ -15,17 +15,45 @@ import UIKit
 enum Feed
 {
   // MARK: Use cases
-  
-  enum Something
-  {
+
+  enum AlbumFeed {
     struct Request
     {
     }
     struct Response
     {
+      let albums: Albums
     }
     struct ViewModel
     {
+      let data: [PresentFeed]
     }
+  }
+
+  enum Photo
+  {
+    struct Request
+    {
+      let id: String
+      let indexPath: IndexPath
+    }
+    struct Response
+    {
+      let id: String
+      let photo: Photos
+      let indexPath: IndexPath
+    }
+    struct ViewModel
+    {
+      let id: String
+      let photoList: [String]
+      let indexPath: IndexPath
+    }
+  }
+
+  struct PresentFeed {
+    let id, title: String
+    var photoList: [String]?
+    var isLoadPhoto: Bool = false
   }
 }
