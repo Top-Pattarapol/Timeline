@@ -48,13 +48,7 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore
   func getPhoto(request: Feed.Photo.Request) {
     worker = FeedWorker()
     worker?.getPhoto(albumId: request.id, success: { data in
-      if let newAlbms = self.albums?.result {
-        for (index, item) in newAlbms.enumerated() {
-          if item.id == request.id {
-            self.albums?.result[index].photos = data
-          }
-        }
-      }
+      self.albums?.result[request.indexPath.row].photos = data
       let response = Feed.Photo.Response(id: request.id, photo: data, indexPath: request.indexPath)
       self.presenter?.presentPhoto(response: response)
     }, error: { _ in

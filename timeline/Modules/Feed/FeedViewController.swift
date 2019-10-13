@@ -138,8 +138,6 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
       return UITableViewCell()
     }
 
-
-    
     cell.titleLabel.text = data.title
     cell.timeLabel.text = getTime()
 
