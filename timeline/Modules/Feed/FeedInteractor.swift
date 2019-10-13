@@ -23,6 +23,7 @@ protocol FeedDataStore
 {
   var albums: Albums? { get set }
   var dataForPostView: Feed.PresentFeed? { get set }
+  var dateForPostView: String { get set }
 }
 
 class FeedInteractor: FeedBusinessLogic, FeedDataStore
@@ -31,6 +32,7 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore
   var worker: FeedWorker?
   var albums: Albums?
   var dataForPostView: Feed.PresentFeed?
+  var dateForPostView: String = ""
   
   // MARK: Do something
 
@@ -65,6 +67,7 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore
       return item.url
     })
     dataForPostView = data
+    dateForPostView = request.time
     presenter?.presentPostView(response: Feed.Post.Response())
     
   }

@@ -22,6 +22,7 @@ protocol PostDataStore
 {
   //var name: String { get set }
   var title: String { get set }
+  var time: String { get set }
   var photoList: [String]? { get set }
 
 }
@@ -31,6 +32,7 @@ class PostInteractor: PostBusinessLogic, PostDataStore
   var presenter: PostPresentationLogic?
   var worker: PostWorker?
   var title: String = ""
+  var time: String = ""
   var photoList: [String]?
   //var name: String = ""
   
@@ -38,7 +40,7 @@ class PostInteractor: PostBusinessLogic, PostDataStore
   
   func getPost(request: Post.Post.Request)
   {
-    let response = Post.Post.Response(title: title, photoList: photoList ?? [])
+    let response = Post.Post.Response(title: title, time: time, photoList: photoList ?? [])
     presenter?.presentPost(response: response)
   }
 

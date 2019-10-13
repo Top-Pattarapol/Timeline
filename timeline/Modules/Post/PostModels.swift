@@ -24,11 +24,13 @@ enum Post
     struct Response
     {
       let title: String
+      let time: String
       let photoList: [String]
     }
     struct ViewModel
     {
       let title: String
+      let time: String
       let photoList: [String]
     }
   }

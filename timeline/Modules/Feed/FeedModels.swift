@@ -56,6 +56,7 @@ enum Feed
     struct Request
     {
       let id: String
+      let time: String
     }
     struct Response
     {

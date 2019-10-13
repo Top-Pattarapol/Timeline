@@ -173,10 +173,11 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
   }
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let cell = tableView.deque(FeedTableViewCell.self, for: indexPath)
     guard let item = feedData?[indexPath.row] else {
       return
     }
-    let request = Feed.Post.Request(id: item.id)
+    let request = Feed.Post.Request(id: item.id, time: cell.timeLabel.text ?? "")
     interactor?.setDataPostView(request: request)
 
   }

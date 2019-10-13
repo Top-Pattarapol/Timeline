@@ -123,6 +123,7 @@ class PostViewController: UIViewController, PostDisplayLogic
   func displayPost(viewModel: Post.Post.ViewModel)
   {
     titleLabel.text = viewModel.title
+    timeLabel.text = viewModel.time
     setImage(view: image1,viewModel: viewModel, index: 0)
     setImage(view: image2,viewModel: viewModel, index: 1)
     setImage(view: image3,viewModel: viewModel, index: 2)

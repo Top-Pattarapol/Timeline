@@ -26,7 +26,7 @@ class PostPresenter: PostPresentationLogic
   
   func presentPost(response: Post.Post.Response)
   {
-    let viewModel = Post.Post.ViewModel(title: response.title, photoList: response.photoList)
+    let viewModel = Post.Post.ViewModel(title: response.title, time: response.time, photoList: response.photoList)
     viewController?.displayPost(viewModel: viewModel)
   }
 
