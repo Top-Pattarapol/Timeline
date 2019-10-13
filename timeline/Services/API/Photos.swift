@@ -1,7 +1,12 @@
 // MARK: - Request
 struct PhotosRequest: RequestProtocol {
   let url = "/public-api/photos"
-  typealias ResponseType = Albums
+  public let body: [String: Any]
+  typealias ResponseType = Photos
+
+  init(albumId: String) {
+    body = ["album_id":  albumId,]
+  }
 }
 
 // MARK: - Response
