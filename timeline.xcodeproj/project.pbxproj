@@ -32,6 +32,12 @@
 		FFCCC95323521E1900F1019C /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFCCC95223521E1900F1019C /* FeedTableViewCell.xib */; };
 		FFCCC95523521E3400F1019C /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC95423521E3400F1019C /* FeedTableViewCell.swift */; };
 		FFCCC9B42352505000F1019C /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC9B32352505000F1019C /* Collection+.swift */; };
+		FFCCC9BC235354CC00F1019C /* PostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC9B6235354CC00F1019C /* PostPresenter.swift */; };
+		FFCCC9BD235354CC00F1019C /* PostWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC9B7235354CC00F1019C /* PostWorker.swift */; };
+		FFCCC9BE235354CC00F1019C /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC9B8235354CC00F1019C /* PostRouter.swift */; };
+		FFCCC9BF235354CC00F1019C /* PostModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC9B9235354CC00F1019C /* PostModels.swift */; };
+		FFCCC9C0235354CC00F1019C /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC9BA235354CC00F1019C /* PostViewController.swift */; };
+		FFCCC9C1235354CC00F1019C /* PostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC9BB235354CC00F1019C /* PostInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +88,12 @@
 		FFCCC95223521E1900F1019C /* FeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		FFCCC95423521E3400F1019C /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		FFCCC9B32352505000F1019C /* Collection+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+.swift"; sourceTree = "<group>"; };
+		FFCCC9B6235354CC00F1019C /* PostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPresenter.swift; sourceTree = "<group>"; };
+		FFCCC9B7235354CC00F1019C /* PostWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWorker.swift; sourceTree = "<group>"; };
+		FFCCC9B8235354CC00F1019C /* PostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRouter.swift; sourceTree = "<group>"; };
+		FFCCC9B9235354CC00F1019C /* PostModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModels.swift; sourceTree = "<group>"; };
+		FFCCC9BA235354CC00F1019C /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		FFCCC9BB235354CC00F1019C /* PostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +180,7 @@
 		FF28D3C02351BBA600336287 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FFCCC9B52353549F00F1019C /* Post */,
 				FFCCC93C23520A9100F1019C /* Feed */,
 			);
 			path = Modules;
@@ -233,6 +246,19 @@
 				FFCCC95423521E3400F1019C /* FeedTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		FFCCC9B52353549F00F1019C /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				FFCCC9B6235354CC00F1019C /* PostPresenter.swift */,
+				FFCCC9B7235354CC00F1019C /* PostWorker.swift */,
+				FFCCC9B8235354CC00F1019C /* PostRouter.swift */,
+				FFCCC9B9235354CC00F1019C /* PostModels.swift */,
+				FFCCC9BA235354CC00F1019C /* PostViewController.swift */,
+				FFCCC9BB235354CC00F1019C /* PostInteractor.swift */,
+			);
+			path = Post;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFCCC9C1235354CC00F1019C /* PostInteractor.swift in Sources */,
 				FF6283FC2351EC4F004916F1 /* RequestConnection.swift in Sources */,
 				FFCCC94423520AA700F1019C /* FeedWorker.swift in Sources */,
 				FF6283FF2351ED8E004916F1 /* Albums.swift in Sources */,
@@ -381,12 +408,17 @@
 				FFCCC94623520AA700F1019C /* FeedModels.swift in Sources */,
 				FF28D3912351B8EB00336287 /* AppDelegate.swift in Sources */,
 				FFCCC8D42352087F00F1019C /* BaseStruct.swift in Sources */,
+				FFCCC9BD235354CC00F1019C /* PostWorker.swift in Sources */,
+				FFCCC9C0235354CC00F1019C /* PostViewController.swift in Sources */,
 				FFCCC9B42352505000F1019C /* Collection+.swift in Sources */,
 				FFCCC94523520AA700F1019C /* FeedRouter.swift in Sources */,
+				FFCCC9BE235354CC00F1019C /* PostRouter.swift in Sources */,
 				FFCCC94323520AA700F1019C /* FeedPresenter.swift in Sources */,
 				FF6283F82351EBD2004916F1 /* WebService.swift in Sources */,
+				FFCCC9BF235354CC00F1019C /* PostModels.swift in Sources */,
 				FFCCC95023521C8700F1019C /* UIView+identifier.swift in Sources */,
 				FF6283FA2351EC27004916F1 /* RequestProtocol.swift in Sources */,
+				FFCCC9BC235354CC00F1019C /* PostPresenter.swift in Sources */,
 				FFCCC94823520AA700F1019C /* FeedInteractor.swift in Sources */,
 				FF28D3932351B8EB00336287 /* SceneDelegate.swift in Sources */,
 				FFCCC94723520AA700F1019C /* FeedViewController.swift in Sources */,
