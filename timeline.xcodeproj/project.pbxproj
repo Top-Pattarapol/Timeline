@@ -10,7 +10,6 @@
 		FF28D3912351B8EB00336287 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF28D3902351B8EB00336287 /* AppDelegate.swift */; };
 		FF28D3932351B8EB00336287 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF28D3922351B8EB00336287 /* SceneDelegate.swift */; };
 		FF28D3982351B8EB00336287 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF28D3962351B8EB00336287 /* Main.storyboard */; };
-		FF28D39A2351B8ED00336287 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF28D3992351B8ED00336287 /* Assets.xcassets */; };
 		FF28D39D2351B8ED00336287 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF28D39B2351B8ED00336287 /* LaunchScreen.storyboard */; };
 		FF28D3A82351B8EE00336287 /* timelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF28D3A72351B8EE00336287 /* timelineTests.swift */; };
 		FF28D3B32351B8EE00336287 /* timelineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF28D3B22351B8EE00336287 /* timelineUITests.swift */; };
@@ -21,6 +20,18 @@
 		FFCCC8CF2352027600F1019C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FFCCC8CE2352027600F1019C /* Alamofire */; };
 		FFCCC8D22352071800F1019C /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC8D12352071800F1019C /* Photos.swift */; };
 		FFCCC8D42352087F00F1019C /* BaseStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC8D32352087F00F1019C /* BaseStruct.swift */; };
+		FFCCC94323520AA700F1019C /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC93D23520AA700F1019C /* FeedPresenter.swift */; };
+		FFCCC94423520AA700F1019C /* FeedWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC93E23520AA700F1019C /* FeedWorker.swift */; };
+		FFCCC94523520AA700F1019C /* FeedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC93F23520AA700F1019C /* FeedRouter.swift */; };
+		FFCCC94623520AA700F1019C /* FeedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC94023520AA700F1019C /* FeedModels.swift */; };
+		FFCCC94723520AA700F1019C /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC94123520AA700F1019C /* FeedViewController.swift */; };
+		FFCCC94823520AA700F1019C /* FeedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC94223520AA700F1019C /* FeedInteractor.swift */; };
+		FFCCC94B23520C0400F1019C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FFCCC94A23520C0400F1019C /* Kingfisher */; };
+		FFCCC94E23521C4300F1019C /* UITableViewCell+deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC94D23521C4300F1019C /* UITableViewCell+deque.swift */; };
+		FFCCC95023521C8700F1019C /* UIView+identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC94F23521C8700F1019C /* UIView+identifier.swift */; };
+		FFCCC95323521E1900F1019C /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFCCC95223521E1900F1019C /* FeedTableViewCell.xib */; };
+		FFCCC95523521E3400F1019C /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC95423521E3400F1019C /* FeedTableViewCell.swift */; };
+		FFCCC9B42352505000F1019C /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC9B32352505000F1019C /* Collection+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +71,17 @@
 		FF6283FE2351ED8E004916F1 /* Albums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Albums.swift; sourceTree = "<group>"; };
 		FFCCC8D12352071800F1019C /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		FFCCC8D32352087F00F1019C /* BaseStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStruct.swift; sourceTree = "<group>"; };
+		FFCCC93D23520AA700F1019C /* FeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
+		FFCCC93E23520AA700F1019C /* FeedWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedWorker.swift; sourceTree = "<group>"; };
+		FFCCC93F23520AA700F1019C /* FeedRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRouter.swift; sourceTree = "<group>"; };
+		FFCCC94023520AA700F1019C /* FeedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModels.swift; sourceTree = "<group>"; };
+		FFCCC94123520AA700F1019C /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		FFCCC94223520AA700F1019C /* FeedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedInteractor.swift; sourceTree = "<group>"; };
+		FFCCC94D23521C4300F1019C /* UITableViewCell+deque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+deque.swift"; sourceTree = "<group>"; };
+		FFCCC94F23521C8700F1019C /* UIView+identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+identifier.swift"; sourceTree = "<group>"; };
+		FFCCC95223521E1900F1019C /* FeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
+		FFCCC95423521E3400F1019C /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		FFCCC9B32352505000F1019C /* Collection+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFCCC94B23520C0400F1019C /* Kingfisher in Frameworks */,
 				FFCCC8CF2352027600F1019C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,6 +138,7 @@
 				FF28D3902351B8EB00336287 /* AppDelegate.swift */,
 				FF28D3922351B8EB00336287 /* SceneDelegate.swift */,
 				FF28D3992351B8ED00336287 /* Assets.xcassets */,
+				FFCCC94C23521C1900F1019C /* Extension */,
 				FF28D39B2351B8ED00336287 /* LaunchScreen.storyboard */,
 				FF28D3962351B8EB00336287 /* Main.storyboard */,
 				FF28D3C02351BBA600336287 /* Modules */,
@@ -144,6 +168,7 @@
 		FF28D3C02351BBA600336287 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FFCCC93C23520A9100F1019C /* Feed */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -177,6 +202,39 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		FFCCC93C23520A9100F1019C /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				FFCCC95123521DDE00F1019C /* Cell */,
+				FFCCC93D23520AA700F1019C /* FeedPresenter.swift */,
+				FFCCC93E23520AA700F1019C /* FeedWorker.swift */,
+				FFCCC93F23520AA700F1019C /* FeedRouter.swift */,
+				FFCCC94023520AA700F1019C /* FeedModels.swift */,
+				FFCCC94123520AA700F1019C /* FeedViewController.swift */,
+				FFCCC94223520AA700F1019C /* FeedInteractor.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		FFCCC94C23521C1900F1019C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FFCCC94D23521C4300F1019C /* UITableViewCell+deque.swift */,
+				FFCCC94F23521C8700F1019C /* UIView+identifier.swift */,
+				FFCCC9B32352505000F1019C /* Collection+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		FFCCC95123521DDE00F1019C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FFCCC95223521E1900F1019C /* FeedTableViewCell.xib */,
+				FFCCC95423521E3400F1019C /* FeedTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -195,6 +253,7 @@
 			name = timeline;
 			packageProductDependencies = (
 				FFCCC8CE2352027600F1019C /* Alamofire */,
+				FFCCC94A23520C0400F1019C /* Kingfisher */,
 			);
 			productName = timeline;
 			productReference = FF28D38D2351B8EB00336287 /* timeline.app */;
@@ -270,6 +329,7 @@
 			mainGroup = FF28D3842351B8EB00336287;
 			packageReferences = (
 				FFCCC8CD2352027600F1019C /* XCRemoteSwiftPackageReference "Alamofire" */,
+				FFCCC94923520C0400F1019C /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = FF28D38E2351B8EB00336287 /* Products */;
 			projectDirPath = "";
@@ -288,7 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF28D39D2351B8ED00336287 /* LaunchScreen.storyboard in Resources */,
-				FF28D39A2351B8ED00336287 /* Assets.xcassets in Resources */,
+				FFCCC95323521E1900F1019C /* FeedTableViewCell.xib in Resources */,
 				FF28D3982351B8EB00336287 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,12 +375,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF6283FC2351EC4F004916F1 /* RequestConnection.swift in Sources */,
+				FFCCC94423520AA700F1019C /* FeedWorker.swift in Sources */,
 				FF6283FF2351ED8E004916F1 /* Albums.swift in Sources */,
+				FFCCC95523521E3400F1019C /* FeedTableViewCell.swift in Sources */,
+				FFCCC94623520AA700F1019C /* FeedModels.swift in Sources */,
 				FF28D3912351B8EB00336287 /* AppDelegate.swift in Sources */,
 				FFCCC8D42352087F00F1019C /* BaseStruct.swift in Sources */,
+				FFCCC9B42352505000F1019C /* Collection+.swift in Sources */,
+				FFCCC94523520AA700F1019C /* FeedRouter.swift in Sources */,
+				FFCCC94323520AA700F1019C /* FeedPresenter.swift in Sources */,
 				FF6283F82351EBD2004916F1 /* WebService.swift in Sources */,
+				FFCCC95023521C8700F1019C /* UIView+identifier.swift in Sources */,
 				FF6283FA2351EC27004916F1 /* RequestProtocol.swift in Sources */,
+				FFCCC94823520AA700F1019C /* FeedInteractor.swift in Sources */,
 				FF28D3932351B8EB00336287 /* SceneDelegate.swift in Sources */,
+				FFCCC94723520AA700F1019C /* FeedViewController.swift in Sources */,
+				FFCCC94E23521C4300F1019C /* UITableViewCell+deque.swift in Sources */,
 				FFCCC8D22352071800F1019C /* Photos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -660,6 +730,14 @@
 				minimumVersion = 4.9.0;
 			};
 		};
+		FFCCC94923520C0400F1019C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -667,6 +745,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FFCCC8CD2352027600F1019C /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		FFCCC94A23520C0400F1019C /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFCCC94923520C0400F1019C /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
