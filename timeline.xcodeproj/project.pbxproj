@@ -14,6 +14,10 @@
 		FF4E439A2354D52B00B97241 /* RequestAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4E43992354D52B00B97241 /* RequestAPITests.swift */; };
 		FF4E439C2354D76100B97241 /* WebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4E439B2354D76100B97241 /* WebServiceTests.swift */; };
 		FF4E439E2354D94600B97241 /* RequestProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4E439D2354D94600B97241 /* RequestProtocolTests.swift */; };
+		FF4E43A82354DC0A00B97241 /* FeedInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4E43A72354DC0A00B97241 /* FeedInteractorTests.swift */; };
+		FF4E43AB2354DCC700B97241 /* SpyFeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4E43AA2354DCC700B97241 /* SpyFeedPresenter.swift */; };
+		FF4E440B2354E07200B97241 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4E43A12354DAFB00B97241 /* OHHTTPStubs.framework */; platformFilter = ios; };
+		FF4E44672354E21100B97241 /* Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4E44062354DE3F00B97241 /* Stubs.swift */; };
 		FF6283F82351EBD2004916F1 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6283F72351EBD2004916F1 /* WebService.swift */; };
 		FF6283FA2351EC27004916F1 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6283F92351EC27004916F1 /* RequestProtocol.swift */; };
 		FF6283FC2351EC4F004916F1 /* RequestConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6283FB2351EC4F004916F1 /* RequestConnection.swift */; };
@@ -86,6 +90,10 @@
 		FF4E43992354D52B00B97241 /* RequestAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPITests.swift; sourceTree = "<group>"; };
 		FF4E439B2354D76100B97241 /* WebServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceTests.swift; sourceTree = "<group>"; };
 		FF4E439D2354D94600B97241 /* RequestProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocolTests.swift; sourceTree = "<group>"; };
+		FF4E43A12354DAFB00B97241 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
+		FF4E43A72354DC0A00B97241 /* FeedInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedInteractorTests.swift; sourceTree = "<group>"; };
+		FF4E43AA2354DCC700B97241 /* SpyFeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyFeedPresenter.swift; sourceTree = "<group>"; };
+		FF4E44062354DE3F00B97241 /* Stubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stubs.swift; sourceTree = "<group>"; };
 		FF6283F72351EBD2004916F1 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		FF6283F92351EC27004916F1 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		FF6283FB2351EC4F004916F1 /* RequestConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConnection.swift; sourceTree = "<group>"; };
@@ -138,6 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF4E440B2354E07200B97241 /* OHHTTPStubs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +167,7 @@
 				FF28D38F2351B8EB00336287 /* timeline */,
 				FF28D3A62351B8EE00336287 /* timelineTests */,
 				FF28D3B12351B8EE00336287 /* timelineUITests */,
+				FF4E43A02354DAFB00B97241 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -194,6 +204,7 @@
 				FF28D3A92351B8EE00336287 /* Info.plist */,
 				FF4E439F2354DA2900B97241 /* Modules */,
 				FF4E43972354D4F500B97241 /* Services */,
+				FF4E44062354DE3F00B97241 /* Stubs.swift */,
 			);
 			path = timelineTests;
 			sourceTree = "<group>";
@@ -240,8 +251,34 @@
 		FF4E439F2354DA2900B97241 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FF4E43A62354DBA500B97241 /* Feed */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		FF4E43A02354DAFB00B97241 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FF4E43A12354DAFB00B97241 /* OHHTTPStubs.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FF4E43A62354DBA500B97241 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				FF4E43A92354DCA100B97241 /* Mock */,
+				FF4E43A72354DC0A00B97241 /* FeedInteractorTests.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		FF4E43A92354DCA100B97241 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				FF4E43AA2354DCC700B97241 /* SpyFeedPresenter.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		FF6283F62351EBBA004916F1 /* Services */ = {
@@ -374,6 +411,7 @@
 				FF28D39F2351B8EE00336287 /* Sources */,
 				FF28D3A02351B8EE00336287 /* Frameworks */,
 				FF28D3A12351B8EE00336287 /* Resources */,
+				FF4E440C2354E07900B97241 /* Carthage Copy Framworks */,
 			);
 			buildRules = (
 			);
@@ -477,6 +515,29 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		FF4E440C2354E07900B97241 /* Carthage Copy Framworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/OHHTTPStubs.framework",
+			);
+			name = "Carthage Copy Framworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/OHHTTPStubs.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FF28D3892351B8EB00336287 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -523,8 +584,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF4E43AB2354DCC700B97241 /* SpyFeedPresenter.swift in Sources */,
 				FF4E439C2354D76100B97241 /* WebServiceTests.swift in Sources */,
 				FF4E439E2354D94600B97241 /* RequestProtocolTests.swift in Sources */,
+				FF4E44672354E21100B97241 /* Stubs.swift in Sources */,
+				FF4E43A82354DC0A00B97241 /* FeedInteractorTests.swift in Sources */,
 				FF4E439A2354D52B00B97241 /* RequestAPITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -694,6 +758,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4P2H2GGVU2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = timeline/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -712,6 +780,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4P2H2GGVU2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = timeline/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -731,6 +803,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4P2H2GGVU2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = timelineTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -753,6 +829,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4P2H2GGVU2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = timelineTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
