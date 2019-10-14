@@ -1,9 +1,9 @@
-//
-//  UiView+.swift
-//  timeline
-//
-//  Created by pattarapol sawasdee on 14/10/2562 BE.
-//  Copyright © 2562 pattarapol. All rights reserved.
-//
+import UIKit
 
-import Foundation
+extension UIView {
+  func applyBorderConner(radius: CGFloat, color: UIColor) {
+    self.layer.cornerRadius = radius
+    self.layer.borderWidth = 1
+    self.layer.borderColor = color.cgColor
+  }
+}
