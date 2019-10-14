@@ -72,9 +72,16 @@ class FeedViewController: UIViewController, FeedDisplayLogic
   override func viewDidLoad()
   {
     super.viewDidLoad()
+    shouldHideKeyboardWhenTappedAnyArea()
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(addTapped))
+    searchBar.delegate = self
     setupTableView()
     loadFeed()
+  }
+
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    searchBar.setCenteredPlaceHolder()
   }
 
   @objc func addTapped() {
@@ -185,5 +192,37 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
     let request = Feed.Post.Request(id: item.id, time: cell.timeLabel.text ?? "")
     interactor?.setDataPostView(request: request)
 
+  }
+}
+
+extension FeedViewController: UISearchBarDelegate {
+  fileprivate func updateAlignmentSearchBar(_ searchBar: UISearchBar) {
+    if searchBar.text?.isEmpty ?? true {
+      searchBar.setCenteredPlaceHolder()
+    } else {
+      searchBar.setDefaultView()
+    }
+  }
+
+  func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    searchBar.setDefaultView()
+  }
+
+  func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    updateAlignmentSearchBar(searchBar)
+    searchBar.endEditing(true)
+  }
+
+  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    updateAlignmentSearchBar(searchBar)
+    searchBar.endEditing(true)
+  }
+
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    updateAlignmentSearchBar(searchBar)
+    searchBar.endEditing(true)
+  }
+
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
   }
 }
