@@ -40,6 +40,14 @@
 		FFCCC9C1235354CC00F1019C /* PostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC9BB235354CC00F1019C /* PostInteractor.swift */; };
 		FFCCC9C32354177C00F1019C /* UISearchBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC9C22354177C00F1019C /* UISearchBar+.swift */; };
 		FFCCCA79235429E200F1019C /* UIVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCCA78235429E200F1019C /* UIVIewController.swift */; };
+		FFCCCB3523549DF400F1019C /* NewPostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCCB2F23549DF400F1019C /* NewPostPresenter.swift */; };
+		FFCCCB3623549DF400F1019C /* NewPostWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCCB3023549DF400F1019C /* NewPostWorker.swift */; };
+		FFCCCB3723549DF400F1019C /* NewPostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCCB3123549DF400F1019C /* NewPostRouter.swift */; };
+		FFCCCB3823549DF400F1019C /* NewPostModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCCB3223549DF400F1019C /* NewPostModels.swift */; };
+		FFCCCB3923549DF400F1019C /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCCB3323549DF400F1019C /* NewPostViewController.swift */; };
+		FFCCCB3A23549DF400F1019C /* NewPostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCCB3423549DF400F1019C /* NewPostInteractor.swift */; };
+		FFCCCB3C2354A76200F1019C /* UiView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCCB3B2354A76200F1019C /* UiView+.swift */; };
+		FFCCCB3F2354AFD900F1019C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCCB3E2354AFD900F1019C /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +106,14 @@
 		FFCCC9BB235354CC00F1019C /* PostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInteractor.swift; sourceTree = "<group>"; };
 		FFCCC9C22354177C00F1019C /* UISearchBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+.swift"; sourceTree = "<group>"; };
 		FFCCCA78235429E200F1019C /* UIVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewController.swift; sourceTree = "<group>"; };
+		FFCCCB2F23549DF400F1019C /* NewPostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostPresenter.swift; sourceTree = "<group>"; };
+		FFCCCB3023549DF400F1019C /* NewPostWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostWorker.swift; sourceTree = "<group>"; };
+		FFCCCB3123549DF400F1019C /* NewPostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostRouter.swift; sourceTree = "<group>"; };
+		FFCCCB3223549DF400F1019C /* NewPostModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostModels.swift; sourceTree = "<group>"; };
+		FFCCCB3323549DF400F1019C /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		FFCCCB3423549DF400F1019C /* NewPostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostInteractor.swift; sourceTree = "<group>"; };
+		FFCCCB3B2354A76200F1019C /* UiView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiView+.swift"; sourceTree = "<group>"; };
+		FFCCCB3E2354AFD900F1019C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +170,7 @@
 				FF28D3902351B8EB00336287 /* AppDelegate.swift */,
 				FF28D3922351B8EB00336287 /* SceneDelegate.swift */,
 				FF28D3992351B8ED00336287 /* Assets.xcassets */,
+				FFCCCB3D2354AF6800F1019C /* Common */,
 				FFCCC94C23521C1900F1019C /* Extension */,
 				FF28D39B2351B8ED00336287 /* LaunchScreen.storyboard */,
 				FF28D3962351B8EB00336287 /* Main.storyboard */,
@@ -184,6 +201,7 @@
 		FF28D3C02351BBA600336287 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FFCCCB2E23549DCA00F1019C /* NewPost */,
 				FFCCC9B52353549F00F1019C /* Post */,
 				FFCCC93C23520A9100F1019C /* Feed */,
 			);
@@ -241,6 +259,7 @@
 				FFCCC9B32352505000F1019C /* Collection+.swift */,
 				FFCCC9C22354177C00F1019C /* UISearchBar+.swift */,
 				FFCCCA78235429E200F1019C /* UIVIewController.swift */,
+				FFCCCB3B2354A76200F1019C /* UiView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -265,6 +284,27 @@
 				FFCCC9BB235354CC00F1019C /* PostInteractor.swift */,
 			);
 			path = Post;
+			sourceTree = "<group>";
+		};
+		FFCCCB2E23549DCA00F1019C /* NewPost */ = {
+			isa = PBXGroup;
+			children = (
+				FFCCCB2F23549DF400F1019C /* NewPostPresenter.swift */,
+				FFCCCB3023549DF400F1019C /* NewPostWorker.swift */,
+				FFCCCB3123549DF400F1019C /* NewPostRouter.swift */,
+				FFCCCB3223549DF400F1019C /* NewPostModels.swift */,
+				FFCCCB3323549DF400F1019C /* NewPostViewController.swift */,
+				FFCCCB3423549DF400F1019C /* NewPostInteractor.swift */,
+			);
+			path = NewPost;
+			sourceTree = "<group>";
+		};
+		FFCCCB3D2354AF6800F1019C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FFCCCB3E2354AFD900F1019C /* ImagePicker.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,12 +454,18 @@
 				FFCCC94623520AA700F1019C /* FeedModels.swift in Sources */,
 				FF28D3912351B8EB00336287 /* AppDelegate.swift in Sources */,
 				FFCCC8D42352087F00F1019C /* BaseStruct.swift in Sources */,
+				FFCCCB3823549DF400F1019C /* NewPostModels.swift in Sources */,
 				FFCCC9BD235354CC00F1019C /* PostWorker.swift in Sources */,
+				FFCCCB3723549DF400F1019C /* NewPostRouter.swift in Sources */,
 				FFCCC9C0235354CC00F1019C /* PostViewController.swift in Sources */,
 				FFCCC9B42352505000F1019C /* Collection+.swift in Sources */,
 				FFCCC94523520AA700F1019C /* FeedRouter.swift in Sources */,
+				FFCCCB3623549DF400F1019C /* NewPostWorker.swift in Sources */,
 				FFCCC9BE235354CC00F1019C /* PostRouter.swift in Sources */,
+				FFCCCB3F2354AFD900F1019C /* ImagePicker.swift in Sources */,
+				FFCCCB3923549DF400F1019C /* NewPostViewController.swift in Sources */,
 				FFCCC94323520AA700F1019C /* FeedPresenter.swift in Sources */,
+				FFCCCB3523549DF400F1019C /* NewPostPresenter.swift in Sources */,
 				FF6283F82351EBD2004916F1 /* WebService.swift in Sources */,
 				FFCCC9BF235354CC00F1019C /* PostModels.swift in Sources */,
 				FFCCCA79235429E200F1019C /* UIVIewController.swift in Sources */,
@@ -428,8 +474,10 @@
 				FFCCC9BC235354CC00F1019C /* PostPresenter.swift in Sources */,
 				FFCCC94823520AA700F1019C /* FeedInteractor.swift in Sources */,
 				FF28D3932351B8EB00336287 /* SceneDelegate.swift in Sources */,
+				FFCCCB3C2354A76200F1019C /* UiView+.swift in Sources */,
 				FFCCC9C32354177C00F1019C /* UISearchBar+.swift in Sources */,
 				FFCCC94723520AA700F1019C /* FeedViewController.swift in Sources */,
+				FFCCCB3A23549DF400F1019C /* NewPostInteractor.swift in Sources */,
 				FFCCC94E23521C4300F1019C /* UITableViewCell+deque.swift in Sources */,
 				FFCCC8D22352071800F1019C /* Photos.swift in Sources */,
 			);
