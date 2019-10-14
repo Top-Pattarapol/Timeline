@@ -72,8 +72,13 @@ class FeedViewController: UIViewController, FeedDisplayLogic
   override func viewDidLoad()
   {
     super.viewDidLoad()
+    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(addTapped))
     setupTableView()
     loadFeed()
+  }
+
+  @objc func addTapped() {
+
   }
   
   // MARK: Do something

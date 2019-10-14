@@ -71,12 +71,18 @@ class PostViewController: UIViewController, PostDisplayLogic
   override func viewDidLoad()
   {
     super.viewDidLoad()
+    navigationItem.rightBarButtonItem = UIBarButtonItem(image: UITabBarItem(tabBarSystemItem: .more, tag: 0).selectedImage,
+                                                             style: .plain,
+                                                             target: self,
+                                                             action: #selector(addTapped))
     getPost()
+  }
+
+  @objc func addTapped() {
+
   }
   
   // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
   @IBOutlet var timeLabel: UILabel!
   @IBOutlet var titleLabel: UILabel!
   @IBOutlet var image1: UIImageView!
