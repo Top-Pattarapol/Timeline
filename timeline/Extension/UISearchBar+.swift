@@ -1,5 +1,6 @@
 import UIKit
 extension UISearchBar {
+  
   func setCenteredPlaceHolder(){
     let textFieldInsideSearchBar = self.value(forKey: "searchField") as? UITextField
 

@@ -1,6 +1,7 @@
 import UIKit
 
 extension UIView {
+  
   func applyBorderConner(radius: CGFloat, color: UIColor) {
     self.layer.cornerRadius = radius
     self.layer.borderWidth = 1
