@@ -12,7 +12,6 @@
 		FF28D3982351B8EB00336287 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF28D3962351B8EB00336287 /* Main.storyboard */; };
 		FF28D39D2351B8ED00336287 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF28D39B2351B8ED00336287 /* LaunchScreen.storyboard */; };
 		FF28D3A82351B8EE00336287 /* timelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF28D3A72351B8EE00336287 /* timelineTests.swift */; };
-		FF28D3B32351B8EE00336287 /* timelineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF28D3B22351B8EE00336287 /* timelineUITests.swift */; };
 		FF6283F82351EBD2004916F1 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6283F72351EBD2004916F1 /* WebService.swift */; };
 		FF6283FA2351EC27004916F1 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6283F92351EC27004916F1 /* RequestProtocol.swift */; };
 		FF6283FC2351EC4F004916F1 /* RequestConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6283FB2351EC4F004916F1 /* RequestConnection.swift */; };
@@ -48,6 +47,9 @@
 		FFCCCB3A23549DF400F1019C /* NewPostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCCB3423549DF400F1019C /* NewPostInteractor.swift */; };
 		FFCCCB3C2354A76200F1019C /* UiView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCCB3B2354A76200F1019C /* UiView+.swift */; };
 		FFCCCB3F2354AFD900F1019C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCCB3E2354AFD900F1019C /* ImagePicker.swift */; };
+		FFCCCCC02354C4D600F1019C /* FeedTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCCCBF2354C4D600F1019C /* FeedTest.swift */; };
+		FFCCCE2A2354C8CE00F1019C /* PostTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCCE292354C8CE00F1019C /* PostTest.swift */; };
+		FFCCCE2C2354CAAD00F1019C /* NewPostTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCCE2B2354CAAD00F1019C /* NewPostTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +81,6 @@
 		FF28D3A72351B8EE00336287 /* timelineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timelineTests.swift; sourceTree = "<group>"; };
 		FF28D3A92351B8EE00336287 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF28D3AE2351B8EE00336287 /* timelineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = timelineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF28D3B22351B8EE00336287 /* timelineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timelineUITests.swift; sourceTree = "<group>"; };
 		FF28D3B42351B8EE00336287 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF6283F72351EBD2004916F1 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		FF6283F92351EC27004916F1 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
@@ -114,6 +115,9 @@
 		FFCCCB3423549DF400F1019C /* NewPostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostInteractor.swift; sourceTree = "<group>"; };
 		FFCCCB3B2354A76200F1019C /* UiView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiView+.swift"; sourceTree = "<group>"; };
 		FFCCCB3E2354AFD900F1019C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		FFCCCCBF2354C4D600F1019C /* FeedTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTest.swift; sourceTree = "<group>"; };
+		FFCCCE292354C8CE00F1019C /* PostTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTest.swift; sourceTree = "<group>"; };
+		FFCCCE2B2354CAAD00F1019C /* NewPostTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,7 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				FF28D3B42351B8EE00336287 /* Info.plist */,
-				FF28D3B22351B8EE00336287 /* timelineUITests.swift */,
+				FF4E43952354CD7500B97241 /* Modules */,
 			);
 			path = timelineUITests;
 			sourceTree = "<group>";
@@ -204,6 +208,16 @@
 				FFCCCB2E23549DCA00F1019C /* NewPost */,
 				FFCCC9B52353549F00F1019C /* Post */,
 				FFCCC93C23520A9100F1019C /* Feed */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		FF4E43952354CD7500B97241 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				FFCCCCBF2354C4D600F1019C /* FeedTest.swift */,
+				FFCCCE2B2354CAAD00F1019C /* NewPostTest.swift */,
+				FFCCCE292354C8CE00F1019C /* PostTest.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -495,7 +509,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF28D3B32351B8EE00336287 /* timelineUITests.swift in Sources */,
+				FFCCCE2C2354CAAD00F1019C /* NewPostTest.swift in Sources */,
+				FFCCCE2A2354C8CE00F1019C /* PostTest.swift in Sources */,
+				FFCCCCC02354C4D600F1019C /* FeedTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
