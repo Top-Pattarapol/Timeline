@@ -74,7 +74,7 @@ class FeedViewController: UIViewController, FeedDisplayLogic
   {
     super.viewDidLoad()
     shouldHideKeyboardWhenTappedAnyArea()
-    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(addTapped))
+    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(openNewPost))
     searchBar.delegate = self
     setupTableView()
     loadFeed()
@@ -85,10 +85,6 @@ class FeedViewController: UIViewController, FeedDisplayLogic
     searchBar.setCenteredPlaceHolder()
   }
 
-  @objc func addTapped() {
-
-  }
-  
   // MARK: Do something
   
   //@IBOutlet weak var nameTextField: UITextField!
@@ -97,6 +93,10 @@ class FeedViewController: UIViewController, FeedDisplayLogic
   @IBOutlet var tableView: UITableView!
 
   var feedData: [Feed.PresentFeed]?
+
+  @objc func openNewPost() {
+    performSegue(withIdentifier: "NewPost", sender: nil)
+  }
 
   func setupTableView() {
     tableView.registerNib(FeedTableViewCell.self)
