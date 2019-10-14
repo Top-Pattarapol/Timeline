@@ -39,6 +39,7 @@
 		FFCCC9C0235354CC00F1019C /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC9BA235354CC00F1019C /* PostViewController.swift */; };
 		FFCCC9C1235354CC00F1019C /* PostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC9BB235354CC00F1019C /* PostInteractor.swift */; };
 		FFCCC9C32354177C00F1019C /* UISearchBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC9C22354177C00F1019C /* UISearchBar+.swift */; };
+		FFCCCA79235429E200F1019C /* UIVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCCA78235429E200F1019C /* UIVIewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		FFCCC9BA235354CC00F1019C /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		FFCCC9BB235354CC00F1019C /* PostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInteractor.swift; sourceTree = "<group>"; };
 		FFCCC9C22354177C00F1019C /* UISearchBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+.swift"; sourceTree = "<group>"; };
+		FFCCCA78235429E200F1019C /* UIVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +240,7 @@
 				FFCCC94F23521C8700F1019C /* UIView+identifier.swift */,
 				FFCCC9B32352505000F1019C /* Collection+.swift */,
 				FFCCC9C22354177C00F1019C /* UISearchBar+.swift */,
+				FFCCCA78235429E200F1019C /* UIVIewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				FFCCC94323520AA700F1019C /* FeedPresenter.swift in Sources */,
 				FF6283F82351EBD2004916F1 /* WebService.swift in Sources */,
 				FFCCC9BF235354CC00F1019C /* PostModels.swift in Sources */,
+				FFCCCA79235429E200F1019C /* UIVIewController.swift in Sources */,
 				FFCCC95023521C8700F1019C /* UIView+identifier.swift in Sources */,
 				FF6283FA2351EC27004916F1 /* RequestProtocol.swift in Sources */,
 				FFCCC9BC235354CC00F1019C /* PostPresenter.swift in Sources */,
