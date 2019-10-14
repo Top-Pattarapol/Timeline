@@ -65,6 +65,22 @@ enum Feed
     }
   }
 
+  enum Search
+  {
+    struct Request
+    {
+      let data: String
+    }
+    struct Response
+    {
+      let data: String
+    }
+    struct ViewModel
+    {
+      let data: [PresentFeed]
+    }
+  }
+
   struct PresentFeed {
     let id, title: String
     var photoList: [String]?

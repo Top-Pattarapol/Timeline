@@ -18,6 +18,7 @@ protocol FeedDisplayLogic: class
   func displayFeed(viewModel: Feed.AlbumFeed.ViewModel)
   func displayPhoto(viewModel: Feed.Photo.ViewModel)
   func routeToPost(viewModel: Feed.Post.ViewModel)
+  func displaySearch(viewModel: Feed.Search.ViewModel)
 }
 
 class FeedViewController: UIViewController, FeedDisplayLogic
@@ -124,6 +125,16 @@ class FeedViewController: UIViewController, FeedDisplayLogic
     tableView.reloadRows(at: [viewModel.indexPath], with: .fade)
   }
 
+  func loadSearch(data: String) {
+    let request = Feed.Search.Request(data: data)
+    interactor?.getSearchList(request: request)
+  }
+
+  func displaySearch(viewModel: Feed.Search.ViewModel) {
+    feedData = viewModel.data
+    tableView.reloadData()
+  }
+
   func routeToPost(viewModel: Feed.Post.ViewModel) {
     performSegue(withIdentifier: "Post", sender: nil)
   }
@@ -223,5 +234,6 @@ extension FeedViewController: UISearchBarDelegate {
   }
 
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    loadSearch(data: searchText)
   }
 }

@@ -17,6 +17,7 @@ protocol FeedPresentationLogic
   func presentFeed(response: Feed.AlbumFeed.Response)
   func presentPhoto(response: Feed.Photo.Response)
   func presentPostView(response: Feed.Post.Response)
+  func presentSearch(response: Feed.Search.Response)
 }
 
 class FeedPresenter: FeedPresentationLogic
@@ -45,15 +46,27 @@ class FeedPresenter: FeedPresentationLogic
     }
     feedData?[response.indexPath.row].photoList = photos
     feedData?[response.indexPath.row].isLoadPhoto = true
-    guard let feedData = feedData else {
-      return
-    }
+    guard let feedData = feedData else { return }
     let viewModel = Feed.Photo.ViewModel(data: feedData, indexPath: response.indexPath)
     viewController?.displayPhoto(viewModel: viewModel)
   }
 
   func presentPostView(response: Feed.Post.Response) {
     viewController?.routeToPost(viewModel: Feed.Post.ViewModel())
+  }
+
+  func presentSearch(response: Feed.Search.Response) {
+    guard let feedData = feedData else { return }
+    if !response.data.isEmpty {
+      let newFeed = feedData.filter { item -> Bool in
+        return item.title.contains(response.data)
+      }
+      let viewModel = Feed.Search.ViewModel(data: newFeed)
+      viewController?.displaySearch(viewModel: viewModel)
+    } else {
+      let viewModel = Feed.Search.ViewModel(data: feedData)
+      viewController?.displaySearch(viewModel: viewModel)
+    }
   }
   
 }

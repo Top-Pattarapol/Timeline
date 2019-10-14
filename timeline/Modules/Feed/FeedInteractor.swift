@@ -17,6 +17,7 @@ protocol FeedBusinessLogic
   func getAlbums(request: Feed.AlbumFeed.Request)
   func getPhoto(request: Feed.Photo.Request)
   func setDataPostView(request: Feed.Post.Request)
+  func getSearchList(request: Feed.Search.Request)
 }
 
 protocol FeedDataStore
@@ -70,5 +71,10 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore
     dateForPostView = request.time
     presenter?.presentPostView(response: Feed.Post.Response())
     
+  }
+
+  func getSearchList(request: Feed.Search.Request) {
+    let response = Feed.Search.Response(data: request.data)
+    self.presenter?.presentSearch(response: response)
   }
 }
