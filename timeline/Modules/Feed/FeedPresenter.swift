@@ -24,12 +24,14 @@ class FeedPresenter: FeedPresentationLogic
   weak var viewController: FeedDisplayLogic?
   
   // MARK: Do something
+  var feedData: [Feed.PresentFeed]?
 
   func presentFeed(response: Feed.AlbumFeed.Response) {
 
     let presentFeedData = response.albums.result.map { item -> Feed.PresentFeed in
       return Feed.PresentFeed(id: item.id, title: item.title)
     }
+    feedData = presentFeedData
     let viewModel = Feed.AlbumFeed.ViewModel(data: presentFeedData)
     viewController?.displayFeed(viewModel: viewModel)
   }
@@ -41,8 +43,12 @@ class FeedPresenter: FeedPresentationLogic
       if photos.count == 3 { return }
       photos.append(item.url)
     }
-
-    let viewModel = Feed.Photo.ViewModel(id: response.id, photoList: photos, indexPath: response.indexPath)
+    feedData?[response.indexPath.row].photoList = photos
+    feedData?[response.indexPath.row].isLoadPhoto = true
+    guard let feedData = feedData else {
+      return
+    }
+    let viewModel = Feed.Photo.ViewModel(data: feedData, indexPath: response.indexPath)
     viewController?.displayPhoto(viewModel: viewModel)
   }
 

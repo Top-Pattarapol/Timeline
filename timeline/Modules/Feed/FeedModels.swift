@@ -45,8 +45,7 @@ enum Feed
     }
     struct ViewModel
     {
-      let id: String
-      let photoList: [String]
+      let data: [PresentFeed]
       let indexPath: IndexPath
     }
   }

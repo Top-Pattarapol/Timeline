@@ -120,8 +120,7 @@ class FeedViewController: UIViewController, FeedDisplayLogic
   }
 
   func displayPhoto(viewModel: Feed.Photo.ViewModel) {
-    feedData?[viewModel.indexPath.row].photoList = viewModel.photoList
-    feedData?[viewModel.indexPath.row].isLoadPhoto = true
+    feedData = viewModel.data
     tableView.reloadRows(at: [viewModel.indexPath], with: .fade)
   }
 
