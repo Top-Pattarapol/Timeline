@@ -38,6 +38,7 @@
 		FFCCC9BF235354CC00F1019C /* PostModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC9B9235354CC00F1019C /* PostModels.swift */; };
 		FFCCC9C0235354CC00F1019C /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC9BA235354CC00F1019C /* PostViewController.swift */; };
 		FFCCC9C1235354CC00F1019C /* PostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC9BB235354CC00F1019C /* PostInteractor.swift */; };
+		FFCCC9C32354177C00F1019C /* UISearchBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC9C22354177C00F1019C /* UISearchBar+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		FFCCC9B9235354CC00F1019C /* PostModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModels.swift; sourceTree = "<group>"; };
 		FFCCC9BA235354CC00F1019C /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		FFCCC9BB235354CC00F1019C /* PostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInteractor.swift; sourceTree = "<group>"; };
+		FFCCC9C22354177C00F1019C /* UISearchBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 				FFCCC94D23521C4300F1019C /* UITableViewCell+deque.swift */,
 				FFCCC94F23521C8700F1019C /* UIView+identifier.swift */,
 				FFCCC9B32352505000F1019C /* Collection+.swift */,
+				FFCCC9C22354177C00F1019C /* UISearchBar+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				FFCCC9BC235354CC00F1019C /* PostPresenter.swift in Sources */,
 				FFCCC94823520AA700F1019C /* FeedInteractor.swift in Sources */,
 				FF28D3932351B8EB00336287 /* SceneDelegate.swift in Sources */,
+				FFCCC9C32354177C00F1019C /* UISearchBar+.swift in Sources */,
 				FFCCC94723520AA700F1019C /* FeedViewController.swift in Sources */,
 				FFCCC94E23521C4300F1019C /* UITableViewCell+deque.swift in Sources */,
 				FFCCC8D22352071800F1019C /* Photos.swift in Sources */,
