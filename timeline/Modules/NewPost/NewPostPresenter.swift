@@ -14,7 +14,7 @@ import UIKit
 
 protocol NewPostPresentationLogic
 {
-  func presentSomething(response: NewPost.Something.Response)
+  func presentNewPost(response: NewPost.NewPost.Response)
 }
 
 class NewPostPresenter: NewPostPresentationLogic
@@ -23,9 +23,9 @@ class NewPostPresenter: NewPostPresentationLogic
   
   // MARK: Do something
   
-  func presentSomething(response: NewPost.Something.Response)
+  func presentNewPost(response: NewPost.NewPost.Response)
   {
-    let viewModel = NewPost.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+    let viewModel = NewPost.NewPost.ViewModel()
+    viewController?.routeToParent(viewModel: viewModel)
   }
 }

@@ -18,6 +18,7 @@ protocol FeedBusinessLogic
   func getPhoto(request: Feed.Photo.Request)
   func setDataPostView(request: Feed.Post.Request)
   func getSearchList(request: Feed.Search.Request)
+  func checkNewPost(request: Feed.NewPost.Request)
 }
 
 protocol FeedDataStore
@@ -25,6 +26,7 @@ protocol FeedDataStore
   var albums: Albums? { get set }
   var dataForPostView: Feed.PresentFeed? { get set }
   var dateForPostView: String { get set }
+  var newPost: NewPost.NewPost.Request? { get set }
 }
 
 class FeedInteractor: FeedBusinessLogic, FeedDataStore
@@ -34,6 +36,7 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore
   var albums: Albums?
   var dataForPostView: Feed.PresentFeed?
   var dateForPostView: String = ""
+  var newPost: NewPost.NewPost.Request?
   
   // MARK: Do something
 
@@ -63,8 +66,9 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore
     guard let albums = albums?.result.filter({$0.id == request.id}), let album = albums.first else {
       return
     }
-    var data = Feed.PresentFeed(id: request.id, title: album.title)
-    data.photoList = album.photos?.result.map({ item -> String in
+    //TODO : imageType, date
+    var data = Feed.PresentFeed(id: request.id, title: album.title, date: Date(), imageType: .url(isLoad: true))
+    data.urlList = album.photos?.result.map({ item -> String in
       return item.url
     })
     dataForPostView = data
@@ -77,4 +81,15 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore
     let response = Feed.Search.Response(data: request.data)
     self.presenter?.presentSearch(response: response)
   }
+
+  func checkNewPost(request: Feed.NewPost.Request) {
+    guard let data = newPost else {
+      return
+    }
+    let response = Feed.NewPost.Response(text: data.text, image1: data.image1, image2: data.image2, image3: data.image3)
+    newPost = nil
+    presenter?.presentNewPost(response: response)
+
+  }
+
 }

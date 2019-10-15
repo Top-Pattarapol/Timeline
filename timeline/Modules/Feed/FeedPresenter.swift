@@ -18,6 +18,7 @@ protocol FeedPresentationLogic
   func presentPhoto(response: Feed.Photo.Response)
   func presentPostView(response: Feed.Post.Response)
   func presentSearch(response: Feed.Search.Response)
+  func presentNewPost(response: Feed.NewPost.Response)
 }
 
 class FeedPresenter: FeedPresentationLogic
@@ -30,7 +31,7 @@ class FeedPresenter: FeedPresentationLogic
   func presentFeed(response: Feed.AlbumFeed.Response) {
 
     let presentFeedData = response.albums.result.map { item -> Feed.PresentFeed in
-      return Feed.PresentFeed(id: item.id, title: item.title)
+      return Feed.PresentFeed(id: item.id, title: item.title, date: Date(), imageType: .url(isLoad: false))
     }
     feedData = presentFeedData
     let viewModel = Feed.AlbumFeed.ViewModel(data: presentFeedData)
@@ -44,8 +45,8 @@ class FeedPresenter: FeedPresentationLogic
       if photos.count == 3 { return }
       photos.append(item.url)
     }
-    feedData?[response.indexPath.row].photoList = photos
-    feedData?[response.indexPath.row].isLoadPhoto = true
+    feedData?[response.indexPath.row].urlList = photos
+    feedData?[response.indexPath.row].imageType = .url(isLoad: true)
     guard let feedData = feedData else { return }
     let viewModel = Feed.Photo.ViewModel(data: feedData, indexPath: response.indexPath)
     viewController?.displayPhoto(viewModel: viewModel)
@@ -68,5 +69,13 @@ class FeedPresenter: FeedPresentationLogic
       viewController?.displaySearch(viewModel: viewModel)
     }
   }
+
+  func presentNewPost(response: Feed.NewPost.Response) {
+    let newPost = Feed.PresentFeed(id: "", title: response.text, date: Date(), imageType: .image, urlList: nil, imageList: [response.image1, response.image2, response.image3])
+    feedData?.insert(newPost, at: 0)
+    let viewModel = Feed.AlbumFeed.ViewModel(data: feedData ?? [])
+    viewController?.displayFeed(viewModel: viewModel)
+  }
+
   
 }

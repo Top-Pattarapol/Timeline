@@ -46,12 +46,28 @@
                         <outlet property="searchBar" destination="149-PF-JZc" id="f19-iF-sjp"/>
                         <outlet property="tableView" destination="jN8-PG-kf2" id="7xo-0L-d0c"/>
                         <segue destination="EMp-L3-AVC" kind="show" identifier="Post" id="zxF-0L-GYh"/>
-                        <segue destination="ZCK-0T-pJe" kind="show" identifier="NewPost" id="BC7-FT-duC"/>
+                        <segue destination="sr8-5I-sRn" kind="presentation" identifier="NewPost" modalPresentationStyle="fullScreen" id="IIz-KF-bFG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1048" y="-137"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pgh-vw-LtJ">
+            <objects>
+                <navigationController id="sr8-5I-sRn" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rgI-vM-tDW">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZCK-0T-pJe" kind="relationship" relationship="rootViewController" id="Yfc-m6-D7N"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wVs-yE-qP7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048" y="-869"/>
         </scene>
         <!--New Post-->
         <scene sceneID="QMC-7u-RV7">

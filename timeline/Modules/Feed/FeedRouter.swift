@@ -55,7 +55,7 @@ class FeedRouter: NSObject, FeedRoutingLogic, FeedDataPassing
   func passDataToPost(source: FeedDataStore, destination: inout PostDataStore) {
     destination.title = source.dataForPostView?.title ?? ""
     destination.time = source.dateForPostView
-    destination.photoList = source.dataForPostView?.photoList
+    destination.photoList = source.dataForPostView?.urlList
   }
 
 }

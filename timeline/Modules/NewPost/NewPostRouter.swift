@@ -14,7 +14,7 @@ import UIKit
 
 @objc protocol NewPostRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+  func routeToParent(segue: UIStoryboardSegue?)
 }
 
 protocol NewPostDataPassing
@@ -29,32 +29,33 @@ class NewPostRouter: NSObject, NewPostRoutingLogic, NewPostDataPassing
   
   // MARK: Routing
   
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
+ func routeToParent(segue: UIStoryboardSegue?)
+  {
+    // Get the destination view controller and data store
+    let destinationNC = viewController?.presentingViewController as! UINavigationController
+    let destinationVC = destinationNC.topViewController as! FeedViewController
+
+    var destinationDS = destinationVC.router!.dataStore!
+
+    // Pass data to the destination data store
+    passDataToParent(source: dataStore!, destination: &destinationDS)
+
+    // Navigate to the destination view controller
+    navigateToParent(source: viewController!, destination: destinationVC)
+  }
 
   // MARK: Navigation
   
-  //func navigateToSomewhere(source: NewPostViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
+  func navigateToParent(source: NewPostViewController, destination: FeedViewController)
+  {
+    source.dismiss(animated: true, completion: nil)
+  }
   
   // MARK: Passing data
   
-  //func passDataToSomewhere(source: NewPostDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+  func passDataToParent(source: NewPostDataStore, destination: inout FeedDataStore)
+  {
+    let data = NewPost.NewPost.Request(text: source.text, image1: source.image1, image2: source.image2, image3: source.image3)
+    destination.newPost = data
+  }
 }

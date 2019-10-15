@@ -80,6 +80,11 @@ class FeedViewController: UIViewController, FeedDisplayLogic
     loadFeed()
   }
 
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    interactor?.checkNewPost(request: Feed.NewPost.Request())
+  }
+
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     searchBar.setCenteredPlaceHolder()
@@ -138,13 +143,6 @@ class FeedViewController: UIViewController, FeedDisplayLogic
   func routeToPost(viewModel: Feed.Post.ViewModel) {
     performSegue(withIdentifier: "Post", sender: nil)
   }
-
-  func getTime() -> String {
-    let date = Date()
-    let formatter = DateFormatter()
-    formatter.dateFormat = "h:mm a"
-    return formatter.string(from: date)
-  }
 }
 
 extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
@@ -161,34 +159,19 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     cell.titleLabel.text = data.title
-    cell.timeLabel.text = getTime()
+    cell.timeLabel.text = data.date.getTime()
 
-    if !data.isLoadPhoto {
+    switch data.imageType {
+    case .url(false):
       loadPhoto(id: data.id, indexPath: indexPath)
-    } else {
-      if let photo = data.photoList?[safe: 0] {
-
-        cell.image1.kf.setImage(with: URL(string: photo))
-        cell.image1.isHidden = false
-      } else {
-        cell.image1.isHidden = true
-      }
-
-      if let photo = data.photoList?[safe: 1] {
-
-        cell.image2.kf.setImage(with: URL(string: photo))
-        cell.image2.isHidden = false
-      } else {
-        cell.image2.isHidden = true
-      }
-
-      if let photo = data.photoList?[safe: 2] {
-
-        cell.image3.kf.setImage(with: URL(string: photo))
-        cell.image3.isHidden = false
-      } else {
-        cell.image3.isHidden = true
-      }
+    case .url(true):
+      setImgageWithUrl(view: cell.image1,data: data, index: 0)
+      setImgageWithUrl(view: cell.image2,data: data, index: 1)
+      setImgageWithUrl(view: cell.image3,data: data, index: 2)
+    case .image:
+      setImgageWithImage(view: cell.image1,data: data, index: 0)
+      setImgageWithImage(view: cell.image2,data: data, index: 1)
+      setImgageWithImage(view: cell.image3,data: data, index: 2)
     }
     return cell
 
@@ -202,6 +185,24 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
     let request = Feed.Post.Request(id: item.id, time: cell.timeLabel.text ?? "")
     interactor?.setDataPostView(request: request)
 
+  }
+
+  func setImgageWithUrl(view: UIImageView,data: Feed.PresentFeed, index: Int) {
+    guard let photo = data.urlList?[safe: index] else {
+      view.isHidden = true
+      return
+    }
+    view.kf.setImage(with: URL(string: photo))
+    view.isHidden = false
+  }
+
+  func setImgageWithImage(view: UIImageView,data: Feed.PresentFeed, index: Int) {
+    guard let photo = data.imageList?[safe: index], photo != nil  else {
+      view.isHidden = true
+      return
+    }
+    view.image = photo
+    view.isHidden = false
   }
 }
 

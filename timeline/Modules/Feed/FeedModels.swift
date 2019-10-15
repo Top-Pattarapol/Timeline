@@ -16,6 +16,17 @@ enum Feed
 {
   // MARK: Use cases
 
+  enum NewPost {
+    struct Request
+    {
+    }
+    struct Response
+    {
+      let text: String
+      let image1, image2, image3: UIImage?
+    }
+  }
+
   enum AlbumFeed {
     struct Request
     {
@@ -83,7 +94,16 @@ enum Feed
 
   struct PresentFeed {
     let id, title: String
-    var photoList: [String]?
-    var isLoadPhoto: Bool = false
+    let date: Date
+    var imageType: ImageType
+    var urlList: [String]?
+    var imageList: [UIImage?]?
+
   }
+
+  enum ImageType {
+    case url(isLoad: Bool)
+    case image
+  }
+
 }

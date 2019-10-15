@@ -14,7 +14,7 @@ import UIKit
 
 protocol NewPostDisplayLogic: class
 {
-  func displaySomething(viewModel: NewPost.Something.ViewModel)
+  func routeToParent(viewModel: NewPost.NewPost.ViewModel)
 }
 
 class NewPostViewController: UIViewController, NewPostDisplayLogic
@@ -72,8 +72,6 @@ class NewPostViewController: UIViewController, NewPostDisplayLogic
     navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "Close", style: .done, target: self, action: #selector(close))
     navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Create", style: .done, target: self, action: #selector(create))
     setupView()
-    doSomething()
-
   }
   
   // MARK: Do something
@@ -115,24 +113,24 @@ class NewPostViewController: UIViewController, NewPostDisplayLogic
     inputTextView.text = valuePlacehoder
     inputTextView.textColor = UIColor.lightGray
   }
-  
-  func doSomething()
-  {
-    let request = NewPost.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displaySomething(viewModel: NewPost.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
+
+  func routeToParent(viewModel: NewPost.NewPost.ViewModel) {
+    router?.routeToParent(segue: nil)
   }
 
   @objc func create() {
-
+    let text: String
+    if let inputText = inputTextView.text, inputText != valuePlacehoder {
+      text = inputText
+    } else {
+      text = ""
+    }
+    let request = NewPost.NewPost.Request(text: text, image1: image1.image, image2: image2.image ,image3: image3.image)
+    interactor?.setNewPost(request: request)
   }
 
   @objc func close() {
-    self.navigationController?.popViewController(animated: true)
+    self.navigationController?.dismiss(animated: true)
   }
 }
 
