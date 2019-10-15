@@ -122,6 +122,7 @@
                 <outlet property="image1" destination="Jm6-lb-lhP" id="WyJ-zr-JQw"/>
                 <outlet property="image2" destination="xPQ-lp-miv" id="9TG-N4-xSs"/>
                 <outlet property="image3" destination="Dfe-2F-OcE" id="UoA-WK-9kP"/>
+                <outlet property="leftSide" destination="dTG-3e-l9v" id="eWg-A2-MFV"/>
                 <outlet property="timeLabel" destination="IHM-av-sgm" id="fSU-ZI-yCj"/>
                 <outlet property="titleLabel" destination="69K-Nz-cMo" id="Qed-uT-1ip"/>
             </connections>

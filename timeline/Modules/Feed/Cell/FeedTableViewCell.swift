@@ -7,6 +7,7 @@ class FeedTableViewCell: UITableViewCell {
   @IBOutlet var image1: UIImageView!
   @IBOutlet var image2: UIImageView!
   @IBOutlet var image3: UIImageView!
+  @IBOutlet var leftSide: UIStackView!
   var id: Int?
   
 
@@ -21,7 +22,7 @@ class FeedTableViewCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
-
+    
   }
 
 }
