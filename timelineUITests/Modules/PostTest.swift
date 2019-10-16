@@ -6,10 +6,11 @@ class PostTest: XCTestCase {
 
   override func setUp() {
     continueAfterFailure = false
+    app.launch()
   }
 
   func testPost() {
-    app.launch()
+
     app.tables.cells.firstMatch.tap()
     app.buttons.element(boundBy: 2).tap()
     app.tap()

@@ -6,10 +6,10 @@ class FeedTest: XCTestCase {
 
   override func setUp() {
     continueAfterFailure = false
+    app.launch()
   }
 
   func testFeed() {
-    app.launch()
     let table = app.tables.firstMatch
     table.swipeUp()
     table.swipeDown()
@@ -19,7 +19,6 @@ class FeedTest: XCTestCase {
   }
 
   func testSearch() {
-    app.launch()
     let searchFields = app.searchFields.firstMatch
     searchFields.tap()
     searchFields.typeText("test")
