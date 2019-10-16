@@ -18,17 +18,26 @@ class NewPostTest: XCTestCase {
 
     app.buttons["plus"].tap()
     app.buttons["Camera roll"].tap()
+    sleep(1)
     app.cells.element(boundBy: 0).tap()
+    sleep(1)
     app.buttons["Choose"].tap()
 
     app.buttons["plus"].tap()
     app.buttons["Camera roll"].tap()
+    sleep(1)
     app.cells.element(boundBy: 1).tap()
+    sleep(1)
     app.buttons["Choose"].tap()
 
     app.buttons["plus"].tap()
     app.buttons["Camera roll"].tap()
+    sleep(1)
     app.cells.element(boundBy: 2).tap()
+    sleep(1)
     app.buttons["Choose"].tap()
+
+    sleep(1)
+    app.buttons["Create"].firstMatch.tap()
   }
 }

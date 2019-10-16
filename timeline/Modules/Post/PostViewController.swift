@@ -119,8 +119,19 @@ class PostViewController: UIViewController, PostDisplayLogic
   }
   
   fileprivate func setImage(view: UIImageView, viewModel: Post.Post.ViewModel, index: Int) {
-    if let photo = viewModel.photoList[safe: index] {
-      view.kf.setImage(with: URL(string: photo))
+    var newImage: UIImage? = nil
+    switch index {
+    case 0:
+      newImage = viewModel.data.image1
+    case 1:
+      newImage = viewModel.data.image2
+    case 2:
+      newImage = viewModel.data.image3
+    default:
+      break
+    }
+    if let photo = newImage {
+      view.image = photo
     } else {
       view.isHidden = true
     }
@@ -128,15 +139,15 @@ class PostViewController: UIViewController, PostDisplayLogic
 
   func displayPost(viewModel: Post.Post.ViewModel)
   {
-    titleLabel.text = viewModel.title
-    timeLabel.text = viewModel.time
+    titleLabel.text = viewModel.data.title
+    timeLabel.text = viewModel.data.time
     setImage(view: image1,viewModel: viewModel, index: 0)
     setImage(view: image2,viewModel: viewModel, index: 1)
     setImage(view: image3,viewModel: viewModel, index: 2)
   }
 
   func displayFullImage(viewModel: Post.FullImage.ViewModel) {
-    imageFull.kf.setImage(with: URL(string: viewModel.imageUrl))
+    imageFull.image = viewModel.imageUrl
     imageFullVIew.isHidden = false
   }
 
