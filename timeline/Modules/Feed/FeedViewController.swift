@@ -108,6 +108,8 @@ class FeedViewController: UIViewController, FeedDisplayLogic
     tableView.delegate = self
     tableView.dataSource = self
     tableView.separatorStyle = .none
+    tableView.rowHeight = UITableView.automaticDimension
+    tableView.estimatedRowHeight = 0
   }
 
   func loadFeed() {

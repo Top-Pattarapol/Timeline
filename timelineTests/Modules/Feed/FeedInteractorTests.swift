@@ -101,7 +101,7 @@ class FeedInteractorTests: XCTestCase {
     let links = Links(linksSelf: .init(href: "0"), edit: .init(href: "0"))
     let album = Album.init(id: "0", userID: "0", title: "test", links: links, photos: nil)
     interactor.albums = Albums.init(result: [album])
-    interactor.setDataPostView(request: Feed.Post.Request(title: "test", time: "2", image1: nil, image2: nil, image3: nil))
+    interactor.setDataPostView(request: Feed.Post.Request(data: .init(id: "2", title: "test", date: Date(), imageType: .url(isLoad: true), urlList: nil, imageList: nil)))
 
     waitForExpectations(timeout: 3) { (_) in
       XCTAssertEqual(1, self.presenter?.presentPostViewPass)

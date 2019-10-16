@@ -26,8 +26,7 @@ class FeedPresenterTests: XCTestCase {
 
   func testPresentPhoto() {
     
-
-    let newFeed = Feed.PresentFeed(id: "0", title: "test", date: Date(), imageType: Feed.ImageType.url(isLoad: true))
+    let newFeed = PresentModel.init(id: "0", title: "test", date: Date(), imageType: .url(isLoad: true), urlList: nil, imageList: nil)
     presenter.feedData = [newFeed]
     let links = Links(linksSelf: .init(href: "0"), edit: .init(href: "0"))
     let photo = Photo.init(id: "0", albumID: "0", title: "test1", url: "test2", thumbnail: "test3", links: links)
@@ -44,7 +43,7 @@ class FeedPresenterTests: XCTestCase {
 
 }
 
-
+// TODO : Add Test
 //func presentPhoto(response: Feed.Photo.Response)
 //func presentPostView(response: Feed.Post.Response)
 //func presentSearch(response: Feed.Search.Response)
