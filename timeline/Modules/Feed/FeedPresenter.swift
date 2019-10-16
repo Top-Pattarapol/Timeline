@@ -26,12 +26,12 @@ class FeedPresenter: FeedPresentationLogic
   weak var viewController: FeedDisplayLogic?
   
   // MARK: Do something
-  var feedData: [Feed.PresentFeed]?
+  var feedData: [PresentModel]?
 
   func presentFeed(response: Feed.AlbumFeed.Response) {
 
-    let presentFeedData = response.albums.result.map { item -> Feed.PresentFeed in
-      return Feed.PresentFeed(id: item.id, title: item.title, date: Date(), imageType: .url(isLoad: false))
+    let presentFeedData = response.albums.result.map { item -> PresentModel in
+      return PresentModel(id: item.id, title: item.title, date: Date(), imageType: .url(isLoad: false))
     }
     feedData = presentFeedData
     let viewModel = Feed.AlbumFeed.ViewModel(data: presentFeedData)
@@ -71,7 +71,7 @@ class FeedPresenter: FeedPresentationLogic
   }
 
   func presentNewPost(response: Feed.NewPost.Response) {
-    let newPost = Feed.PresentFeed(id: "", title: response.text, date: Date(), imageType: .image, urlList: nil, imageList: [response.image1, response.image2, response.image3])
+    let newPost = PresentModel(id: "", title: response.text, date: Date(), imageType: .image, urlList: nil, imageList: [response.image1, response.image2, response.image3])
     feedData?.insert(newPost, at: 0)
     let viewModel = Feed.AlbumFeed.ViewModel(data: feedData ?? [])
     viewController?.displayFeed(viewModel: viewModel)

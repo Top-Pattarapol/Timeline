@@ -37,7 +37,7 @@ enum Feed
     }
     struct ViewModel
     {
-      let data: [PresentFeed]
+      let data: [PresentModel]
     }
   }
 
@@ -56,7 +56,7 @@ enum Feed
     }
     struct ViewModel
     {
-      let data: [PresentFeed]
+      let data: [PresentModel]
       let indexPath: IndexPath
     }
   }
@@ -89,22 +89,21 @@ enum Feed
     }
     struct ViewModel
     {
-      let data: [PresentFeed]
+      let data: [PresentModel]
     }
   }
 
-  struct PresentFeed {
-    let id, title: String
-    let date: Date
-    var imageType: ImageType
-    var urlList: [String]?
-    var imageList: [UIImage?]?
+}
 
-  }
+struct PresentModel {
+  let id, title: String
+  let date: Date
+  var imageType: ImageType
+  var urlList: [String]?
+  var imageList: [UIImage?]?
+}
 
-  enum ImageType {
-    case url(isLoad: Bool)
-    case image
-  }
-
+enum ImageType {
+  case url(isLoad: Bool)
+  case image
 }
