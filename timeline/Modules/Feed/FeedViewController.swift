@@ -193,6 +193,7 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
       setImgageWithImage(view: cell.image2,data: data, index: 1)
       setImgageWithImage(view: cell.image3,data: data, index: 2)
     }
+    cell.leftSide.isHidden = cell.image2?.isHidden ?? true && cell.image3?.isHidden ?? true
     return cell
 
   }
@@ -205,7 +206,7 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
   }
 
   func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-      return UITableView.automaticDimension
+    return UITableView.automaticDimension
   }
 }
 
