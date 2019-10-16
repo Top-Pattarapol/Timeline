@@ -131,7 +131,7 @@ class PostViewController: UIViewController, PostDisplayLogic
       }
       view.image = photo
     default:
-      guard let url = viewModel.data.urlList?[safe: index], url != nil else {
+      guard let url = viewModel.data.urlList?[safe: index] else {
         parentView.isHidden = true
         return
       }
