@@ -15,7 +15,7 @@ import UIKit
 enum Post
 {
   // MARK: Use cases
-  
+
   enum Post
   {
     struct Request
@@ -23,30 +23,27 @@ enum Post
     }
     struct Response
     {
-      let title: String
-      let time: String
-      let photoList: [String]
+      let data: PresentModel
     }
     struct ViewModel
     {
-      let title: String
-      let time: String
-      let photoList: [String]
+      let data: PresentModel
     }
   }
 
   enum FullImage {
     struct Request
     {
-      let index: Int
+      let image: UIImage?
     }
     struct Response
     {
-      let imageUrl: String
+      let image: UIImage?
     }
     struct ViewModel
     {
-      let imageUrl: String
+      let image: UIImage?
+
     }
   }
 }

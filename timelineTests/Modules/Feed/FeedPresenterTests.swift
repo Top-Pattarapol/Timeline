@@ -27,7 +27,7 @@ class FeedPresenterTests: XCTestCase {
   func testPresentPhoto() {
     
 
-    let newFeed = Feed.PresentFeed(id: "0", title: "test")
+    let newFeed = Feed.PresentFeed(id: "0", title: "test", date: Date(), imageType: Feed.ImageType.url(isLoad: true))
     presenter.feedData = [newFeed]
     let links = Links(linksSelf: .init(href: "0"), edit: .init(href: "0"))
     let photo = Photo.init(id: "0", albumID: "0", title: "test1", url: "test2", thumbnail: "test3", links: links)
@@ -37,7 +37,7 @@ class FeedPresenterTests: XCTestCase {
     waitForExpectations(timeout: 3) { (_) in
       XCTAssertEqual("0", self.viewController?.viewModelPhoto?.data[0].id)
       XCTAssertEqual("test", self.viewController?.viewModelPhoto?.data[0].title)
-      XCTAssertEqual("test2", self.viewController?.viewModelPhoto?.data[0].photoList?[0])
+      XCTAssertEqual("test2", self.viewController?.viewModelPhoto?.data[0].urlList?[0])
     }
   }
 

@@ -2,6 +2,10 @@ import XCTest
 @testable import timeline
 
 class SpyFeedPresenter: FeedPresentationLogic {
+  func presentNewPost(response: Feed.NewPost.Response) {
+      
+  }
+  
 
   let expect: XCTestExpectation?
   var dataFeed: Feed.AlbumFeed.Response?

@@ -24,9 +24,8 @@ protocol FeedBusinessLogic
 protocol FeedDataStore
 {
   var albums: Albums? { get set }
-  var dataForPostView: Feed.PresentFeed? { get set }
-  var dateForPostView: String { get set }
   var newPost: NewPost.NewPost.Request? { get set }
+  var dataPostView: PresentModel? { get set }
 }
 
 class FeedInteractor: FeedBusinessLogic, FeedDataStore
@@ -34,9 +33,8 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore
   var presenter: FeedPresentationLogic?
   var worker: FeedWorker?
   var albums: Albums?
-  var dataForPostView: Feed.PresentFeed?
-  var dateForPostView: String = ""
   var newPost: NewPost.NewPost.Request?
+  var dataPostView: PresentModel?
   
   // MARK: Do something
 
@@ -63,16 +61,7 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore
   }
 
   func setDataPostView(request: Feed.Post.Request) {
-    guard let albums = albums?.result.filter({$0.id == request.id}), let album = albums.first else {
-      return
-    }
-    //TODO : imageType, date
-    var data = Feed.PresentFeed(id: request.id, title: album.title, date: Date(), imageType: .url(isLoad: true))
-    data.urlList = album.photos?.result.map({ item -> String in
-      return item.url
-    })
-    dataForPostView = data
-    dateForPostView = request.time
+    dataPostView = request.data
     presenter?.presentPostView(response: Feed.Post.Response())
     
   }

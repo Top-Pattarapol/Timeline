@@ -20,32 +20,26 @@ protocol PostBusinessLogic
 
 protocol PostDataStore
 {
-  //var name: String { get set }
-  var title: String { get set }
-  var time: String { get set }
-  var photoList: [String]? { get set }
-
+  var data: PresentModel? { get set }
 }
 
 class PostInteractor: PostBusinessLogic, PostDataStore
 {
   var presenter: PostPresentationLogic?
   var worker: PostWorker?
-  var title: String = ""
-  var time: String = ""
-  var photoList: [String]?
-  //var name: String = ""
+  var data: PresentModel?
   
   // MARK: Do something
   
   func getPost(request: Post.Post.Request)
   {
-    let response = Post.Post.Response(title: title, time: time, photoList: photoList ?? [])
+    guard let data = data else { return }
+    let response = Post.Post.Response(data: data)
     presenter?.presentPost(response: response)
   }
 
   func getFullImage(request: Post.FullImage.Request) {
-    let response = Post.FullImage.Response(imageUrl: photoList?[safe: request.index] ?? "")
+    let response = Post.FullImage.Response(image: request.image)
     presenter?.presentFullImage(response: response)
   }
 }

@@ -97,7 +97,7 @@ class FeedViewController: UIViewController, FeedDisplayLogic
   @IBOutlet var searchBar: UISearchBar!
   @IBOutlet var tableView: UITableView!
 
-  var feedData: [Feed.PresentFeed]?
+  var feedData: [PresentModel]?
 
   @objc func openNewPost() {
     performSegue(withIdentifier: "NewPost", sender: nil)
@@ -178,16 +178,13 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
   }
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let cell = tableView.deque(FeedTableViewCell.self, for: indexPath)
-    guard let item = feedData?[indexPath.row] else {
-      return
-    }
-    let request = Feed.Post.Request(id: item.id, time: cell.timeLabel.text ?? "")
+    guard let data = feedData?[safe: indexPath.row] else { return }
+    let request = Feed.Post.Request(data: data)
     interactor?.setDataPostView(request: request)
 
   }
 
-  func setImgageWithUrl(view: UIImageView,data: Feed.PresentFeed, index: Int) {
+  func setImgageWithUrl(view: UIImageView,data: PresentModel, index: Int) {
     guard let photo = data.urlList?[safe: index] else {
       view.isHidden = true
       return
@@ -196,7 +193,7 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
     view.isHidden = false
   }
 
-  func setImgageWithImage(view: UIImageView,data: Feed.PresentFeed, index: Int) {
+  func setImgageWithImage(view: UIImageView,data: PresentModel, index: Int) {
     guard let photo = data.imageList?[safe: index], photo != nil  else {
       view.isHidden = true
       return

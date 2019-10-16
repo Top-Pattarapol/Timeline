@@ -53,9 +53,14 @@ class FeedRouter: NSObject, FeedRoutingLogic, FeedDataPassing
   // MARK: Passing data
 
   func passDataToPost(source: FeedDataStore, destination: inout PostDataStore) {
-    destination.title = source.dataForPostView?.title ?? ""
-    destination.time = source.dateForPostView
-    destination.photoList = source.dataForPostView?.urlList
+//    destination.title = source.dataForPostView?.title ?? ""
+//    destination.time = source.dateForPostView
+//    destination.photoList = source.dataForPostView?.urlList
+
+    guard let data = source.dataPostView else {
+      return
+    }
+    destination.data = data
   }
 
 }

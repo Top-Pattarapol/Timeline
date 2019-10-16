@@ -26,12 +26,12 @@ class PostPresenter: PostPresentationLogic
   
   func presentPost(response: Post.Post.Response)
   {
-    let viewModel = Post.Post.ViewModel(title: response.title, time: response.time, photoList: response.photoList)
+    let viewModel = Post.Post.ViewModel(data: response.data)
     viewController?.displayPost(viewModel: viewModel)
   }
 
   func presentFullImage(response: Post.FullImage.Response) {
-    let viewModel = Post.FullImage.ViewModel(imageUrl: response.imageUrl)
+    let viewModel = Post.FullImage.ViewModel(image: response.image)
     viewController?.displayFullImage(viewModel: viewModel)
   }
 }
