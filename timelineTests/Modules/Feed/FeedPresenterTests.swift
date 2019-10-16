@@ -40,10 +40,27 @@ class FeedPresenterTests: XCTestCase {
     }
   }
 
+  func testPresentPostView() {
+    let response = Feed.Post.Response()
+    presenter.presentPostView(response: response)
+    waitForExpectations(timeout: 3) { (_) in
+      XCTAssertEqual(1, self.viewController?.routeToPostPass)
+    }
+  }
 
+  func testPresentSearch() {
+    let newFeed = PresentModel.init(id: "0", title: "test", date: Date(), imageType: .url(isLoad: true), urlList: nil, imageList: nil)
+    presenter.feedData = [newFeed]
+    let links = Links(linksSelf: .init(href: "0"), edit: .init(href: "0"))
+    let photo = Photo.init(id: "0", albumID: "0", title: "test1", url: "test2", thumbnail: "test3", links: links)
+    let photos = Photos.init(result: [photo])
+    let response = Feed.Search.Response(data: "test")
+    presenter.presentSearch(response: response)
+
+    waitForExpectations(timeout: 3) { (_) in
+      XCTAssertEqual(false, self.viewController?.viewModelSearch?.data.isEmpty)
+      XCTAssertEqual("0", self.viewController?.viewModelSearch?.data[0].id)
+      XCTAssertEqual("test", self.viewController?.viewModelSearch?.data[0].title)
+    }
+  }
 }
-
-// TODO : Add Test
-//func presentPhoto(response: Feed.Photo.Response)
-//func presentPostView(response: Feed.Post.Response)
-//func presentSearch(response: Feed.Search.Response)

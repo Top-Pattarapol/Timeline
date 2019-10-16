@@ -2,16 +2,13 @@ import XCTest
 @testable import timeline
 
 class SpyFeedPresenter: FeedPresentationLogic {
-  func presentNewPost(response: Feed.NewPost.Response) {
-      
-  }
-  
 
   let expect: XCTestExpectation?
   var dataFeed: Feed.AlbumFeed.Response?
   var dataPhoto: Feed.Photo.Response?
   var presentPostViewPass = 0
   var dataSearch: String?
+  var responseNewPost: Feed.NewPost.Response?
 
   init(expect: XCTestExpectation? = nil) {
       self.expect = expect
@@ -34,6 +31,11 @@ class SpyFeedPresenter: FeedPresentationLogic {
 
   func presentSearch(response: Feed.Search.Response) {
     dataSearch = response.data
+    expect?.fulfill()
+  }
+
+  func presentNewPost(response: Feed.NewPost.Response) {
+    responseNewPost = response
     expect?.fulfill()
   }
 }

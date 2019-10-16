@@ -25,6 +25,14 @@
 		FF6283FA2351EC27004916F1 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6283F92351EC27004916F1 /* RequestProtocol.swift */; };
 		FF6283FC2351EC4F004916F1 /* RequestConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6283FB2351EC4F004916F1 /* RequestConnection.swift */; };
 		FF6283FF2351ED8E004916F1 /* Albums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6283FE2351ED8E004916F1 /* Albums.swift */; };
+		FF82E6A823575C930011F27D /* PostPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82E6A723575C920011F27D /* PostPresenterTests.swift */; };
+		FF82E6AA23575CA90011F27D /* PostInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82E6A923575CA90011F27D /* PostInteractorTests.swift */; };
+		FF82E6AE23575CCF0011F27D /* SpyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82E6AD23575CCF0011F27D /* SpyPostViewController.swift */; };
+		FF82E6B023575CEA0011F27D /* SpyPostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82E6AF23575CEA0011F27D /* SpyPostPresenter.swift */; };
+		FF82E6B4235766C60011F27D /* SpyNewPostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82E6B3235766C60011F27D /* SpyNewPostPresenter.swift */; };
+		FF82E6B6235766DE0011F27D /* SpyNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82E6B5235766DE0011F27D /* SpyNewPostViewController.swift */; };
+		FF82E6B8235767EA0011F27D /* NewPostPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82E6B7235767EA0011F27D /* NewPostPresenterTests.swift */; };
+		FF82E6BA235767FD0011F27D /* NewPostInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82E6B9235767FD0011F27D /* NewPostInteractorTests.swift */; };
 		FFCCC8CF2352027600F1019C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FFCCC8CE2352027600F1019C /* Alamofire */; };
 		FFCCC8D22352071800F1019C /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC8D12352071800F1019C /* Photos.swift */; };
 		FFCCC8D42352087F00F1019C /* BaseStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCCC8D32352087F00F1019C /* BaseStruct.swift */; };
@@ -104,6 +112,14 @@
 		FF6283F92351EC27004916F1 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		FF6283FB2351EC4F004916F1 /* RequestConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConnection.swift; sourceTree = "<group>"; };
 		FF6283FE2351ED8E004916F1 /* Albums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Albums.swift; sourceTree = "<group>"; };
+		FF82E6A723575C920011F27D /* PostPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPresenterTests.swift; sourceTree = "<group>"; };
+		FF82E6A923575CA90011F27D /* PostInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInteractorTests.swift; sourceTree = "<group>"; };
+		FF82E6AD23575CCF0011F27D /* SpyPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyPostViewController.swift; sourceTree = "<group>"; };
+		FF82E6AF23575CEA0011F27D /* SpyPostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyPostPresenter.swift; sourceTree = "<group>"; };
+		FF82E6B3235766C60011F27D /* SpyNewPostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyNewPostPresenter.swift; sourceTree = "<group>"; };
+		FF82E6B5235766DE0011F27D /* SpyNewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyNewPostViewController.swift; sourceTree = "<group>"; };
+		FF82E6B7235767EA0011F27D /* NewPostPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostPresenterTests.swift; sourceTree = "<group>"; };
+		FF82E6B9235767FD0011F27D /* NewPostInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostInteractorTests.swift; sourceTree = "<group>"; };
 		FFCCC8D12352071800F1019C /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		FFCCC8D32352087F00F1019C /* BaseStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStruct.swift; sourceTree = "<group>"; };
 		FFCCC93D23520AA700F1019C /* FeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
@@ -257,6 +273,8 @@
 		FF4E439F2354DA2900B97241 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FF82E6B1235766710011F27D /* NewPost */,
+				FF82E6A623575C5F0011F27D /* Post */,
 				FF4E43A62354DBA500B97241 /* Feed */,
 			);
 			path = Modules;
@@ -273,9 +291,9 @@
 		FF4E43A62354DBA500B97241 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				FF4E43A92354DCA100B97241 /* Mock */,
 				FF4E43A72354DC0A00B97241 /* FeedInteractorTests.swift */,
 				FF4E446A2354F5E000B97241 /* FeedPresenterTests.swift */,
+				FF4E43A92354DCA100B97241 /* Mock */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -306,6 +324,44 @@
 				FFCCC8D32352087F00F1019C /* BaseStruct.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		FF82E6A623575C5F0011F27D /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				FF82E6A923575CA90011F27D /* PostInteractorTests.swift */,
+				FF82E6A723575C920011F27D /* PostPresenterTests.swift */,
+				FF82E6AB23575CAD0011F27D /* Mock */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		FF82E6AB23575CAD0011F27D /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				FF82E6AF23575CEA0011F27D /* SpyPostPresenter.swift */,
+				FF82E6AD23575CCF0011F27D /* SpyPostViewController.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		FF82E6B1235766710011F27D /* NewPost */ = {
+			isa = PBXGroup;
+			children = (
+				FF82E6B9235767FD0011F27D /* NewPostInteractorTests.swift */,
+				FF82E6B7235767EA0011F27D /* NewPostPresenterTests.swift */,
+				FF82E6B22357667C0011F27D /* Mock */,
+			);
+			path = NewPost;
+			sourceTree = "<group>";
+		};
+		FF82E6B22357667C0011F27D /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				FF82E6B3235766C60011F27D /* SpyNewPostPresenter.swift */,
+				FF82E6B5235766DE0011F27D /* SpyNewPostViewController.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		FFCCC8D52352090F00F1019C /* Core */ = {
@@ -594,13 +650,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF82E6B6235766DE0011F27D /* SpyNewPostViewController.swift in Sources */,
 				FF4E44692354F4BA00B97241 /* SpyFeedViewController.swift in Sources */,
+				FF82E6B4235766C60011F27D /* SpyNewPostPresenter.swift in Sources */,
+				FF82E6AE23575CCF0011F27D /* SpyPostViewController.swift in Sources */,
 				FF4E43AB2354DCC700B97241 /* SpyFeedPresenter.swift in Sources */,
+				FF82E6BA235767FD0011F27D /* NewPostInteractorTests.swift in Sources */,
 				FF4E446B2354F5E000B97241 /* FeedPresenterTests.swift in Sources */,
 				FF4E439C2354D76100B97241 /* WebServiceTests.swift in Sources */,
 				FF4E439E2354D94600B97241 /* RequestProtocolTests.swift in Sources */,
+				FF82E6B8235767EA0011F27D /* NewPostPresenterTests.swift in Sources */,
 				FF4E44672354E21100B97241 /* Stubs.swift in Sources */,
+				FF82E6B023575CEA0011F27D /* SpyPostPresenter.swift in Sources */,
+				FF82E6A823575C930011F27D /* PostPresenterTests.swift in Sources */,
 				FF4E43A82354DC0A00B97241 /* FeedInteractorTests.swift in Sources */,
+				FF82E6AA23575CA90011F27D /* PostInteractorTests.swift in Sources */,
 				FF4E439A2354D52B00B97241 /* RequestAPITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

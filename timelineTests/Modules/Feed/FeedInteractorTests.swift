@@ -115,4 +115,17 @@ class FeedInteractorTests: XCTestCase {
       XCTAssertEqual("test", self.presenter?.dataSearch)
     }
   }
+
+  func testCheckNewPost() {
+    interactor.newPost = NewPost.NewPost.Request(text: "test", image1: nil, image2: nil, image3: nil)
+    interactor.checkNewPost(request: Feed.NewPost.Request())
+
+    waitForExpectations(timeout: 3) { (_) in
+      XCTAssertEqual("test", self.presenter?.responseNewPost?.text)
+      XCTAssertNil(self.presenter?.responseNewPost?.image1)
+      XCTAssertNil(self.presenter?.responseNewPost?.image2)
+      XCTAssertNil(self.presenter?.responseNewPost?.image3)
+    }
+
+  }
 }
