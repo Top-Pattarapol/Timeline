@@ -390,6 +390,9 @@
                         <outlet property="image3" destination="wE4-yN-tAj" id="Bqg-zn-2gd"/>
                         <outlet property="imageFull" destination="Vwv-7E-iEt" id="1Eo-x7-CXU"/>
                         <outlet property="imageFullVIew" destination="3iE-on-GkY" id="TlX-Ko-6Ff"/>
+                        <outlet property="parentImage1" destination="zXl-R7-fSM" id="C3O-rn-qv3"/>
+                        <outlet property="parentImage2" destination="Wle-FL-qc1" id="KNB-w0-O3Y"/>
+                        <outlet property="parentImage3" destination="iuf-fW-Na6" id="yiX-EO-fcv"/>
                         <outlet property="timeLabel" destination="Mwk-nz-aol" id="DAV-gJ-s2L"/>
                         <outlet property="titleLabel" destination="XZZ-rR-ez4" id="d9c-0u-HID"/>
                     </connections>

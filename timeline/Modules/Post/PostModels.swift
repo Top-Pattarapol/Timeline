@@ -16,12 +16,6 @@ enum Post
 {
   // MARK: Use cases
 
-  struct data {
-    let title: String
-    let time: String
-    let image1, image2, image3: UIImage?
-  }
-  
   enum Post
   {
     struct Request
@@ -29,26 +23,26 @@ enum Post
     }
     struct Response
     {
-      let data: data
+      let data: PresentModel
     }
     struct ViewModel
     {
-      let data: data
+      let data: PresentModel
     }
   }
 
   enum FullImage {
     struct Request
     {
-      let index: Int
+      let image: UIImage?
     }
     struct Response
     {
-      let imageUrl: UIImage?
+      let image: UIImage?
     }
     struct ViewModel
     {
-      let imageUrl: UIImage?
+      let image: UIImage?
 
     }
   }

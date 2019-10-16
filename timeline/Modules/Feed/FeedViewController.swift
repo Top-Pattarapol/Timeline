@@ -178,12 +178,8 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
   }
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let cell = tableView.deque(FeedTableViewCell.self, for: indexPath)
-    let request = Feed.Post.Request(title: cell.titleLabel.text ?? "",
-                                         time: cell.timeLabel.text ?? "",
-                                         image1: cell.image1.image,
-                                         image2: cell.image2.image,
-                                         image3: cell.image3.image)
+    guard let data = feedData?[safe: indexPath.row] else { return }
+    let request = Feed.Post.Request(data: data)
     interactor?.setDataPostView(request: request)
 
   }

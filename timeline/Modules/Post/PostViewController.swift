@@ -72,9 +72,9 @@ class PostViewController: UIViewController, PostDisplayLogic
   {
     super.viewDidLoad()
     navigationItem.rightBarButtonItem = UIBarButtonItem(image: UITabBarItem(tabBarSystemItem: .more, tag: 0).selectedImage,
-                                                             style: .plain,
-                                                             target: self,
-                                                             action: #selector(addTapped))
+                                                        style: .plain,
+                                                        target: self,
+                                                        action: #selector(addTapped))
     getPost()
   }
 
@@ -90,17 +90,20 @@ class PostViewController: UIViewController, PostDisplayLogic
   @IBOutlet var image3: UIImageView!
   @IBOutlet var imageFullVIew: UIView!
   @IBOutlet var imageFull: UIImageView!
-
+  @IBOutlet var parentImage1: UIView!
+  @IBOutlet var parentImage2: UIView!
+  @IBOutlet var parentImage3: UIView!
+  
   @IBAction func imageTab1(_ sender: Any) {
-    showFullImage(index: 0)
+    showFullImage(image: image1.image)
   }
   
   @IBAction func imageTab2(_ sender: Any) {
-    showFullImage(index: 1)
+    showFullImage(image: image2.image)
   }
 
   @IBAction func imageTab3(_ sender: Any) {
-    showFullImage(index: 2)
+    showFullImage(image: image3.image)
   }
 
   @IBAction func closeFullImage(_ sender: Any) {
@@ -113,41 +116,40 @@ class PostViewController: UIViewController, PostDisplayLogic
     interactor?.getPost(request: request)
   }
 
-  func showFullImage(index: Int) {
-    let request = Post.FullImage.Request(index: index)
+  func showFullImage(image: UIImage?) {
+    let request = Post.FullImage.Request(image: image)
     interactor?.getFullImage(request: request)
   }
   
-  fileprivate func setImage(view: UIImageView, viewModel: Post.Post.ViewModel, index: Int) {
-    var newImage: UIImage? = nil
-    switch index {
-    case 0:
-      newImage = viewModel.data.image1
-    case 1:
-      newImage = viewModel.data.image2
-    case 2:
-      newImage = viewModel.data.image3
-    default:
-      break
-    }
-    if let photo = newImage {
+  fileprivate func setImage(view: UIImageView, parentView: UIView, viewModel: Post.Post.ViewModel, index: Int) {
+    let data = viewModel.data
+    switch data.imageType {
+    case .image:
+      guard let photo = viewModel.data.imageList?[safe: index], photo != nil else {
+        parentView.isHidden = true
+        return
+      }
       view.image = photo
-    } else {
-      view.isHidden = true
+    default:
+      guard let url = viewModel.data.urlList?[safe: index], url != nil else {
+        parentView.isHidden = true
+        return
+      }
+      view.kf.setImage(with: URL(string: url))
     }
   }
-
+  
   func displayPost(viewModel: Post.Post.ViewModel)
   {
     titleLabel.text = viewModel.data.title
-    timeLabel.text = viewModel.data.time
-    setImage(view: image1,viewModel: viewModel, index: 0)
-    setImage(view: image2,viewModel: viewModel, index: 1)
-    setImage(view: image3,viewModel: viewModel, index: 2)
+    timeLabel.text = viewModel.data.date.getTime()
+    setImage(view: image1, parentView: parentImage1,viewModel: viewModel, index: 0)
+    setImage(view: image2, parentView: parentImage2,viewModel: viewModel, index: 1)
+    setImage(view: image3, parentView: parentImage3,viewModel: viewModel, index: 2)
   }
 
   func displayFullImage(viewModel: Post.FullImage.ViewModel) {
-    imageFull.image = viewModel.imageUrl
+    imageFull.image = viewModel.image
     imageFullVIew.isHidden = false
   }
 

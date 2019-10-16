@@ -65,9 +65,7 @@ enum Feed
   {
     struct Request
     {
-      let title: String
-      let time: String
-      let image1, image2, image3: UIImage?
+      let data: PresentModel
     }
     struct Response
     {

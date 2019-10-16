@@ -31,7 +31,7 @@ class PostPresenter: PostPresentationLogic
   }
 
   func presentFullImage(response: Post.FullImage.Response) {
-    let viewModel = Post.FullImage.ViewModel(imageUrl: response.imageUrl)
+    let viewModel = Post.FullImage.ViewModel(image: response.image)
     viewController?.displayFullImage(viewModel: viewModel)
   }
 }
