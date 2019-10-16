@@ -14,7 +14,7 @@
 
 #### OHHTTPStubs
 ```sh
-carthage update --platform iOS
+carthage update OHHTTPStubs --platform iOS
 ```
 
 ## Manually
