@@ -145,6 +145,24 @@ class FeedViewController: UIViewController, FeedDisplayLogic
   func routeToPost(viewModel: Feed.Post.ViewModel) {
     performSegue(withIdentifier: "Post", sender: nil)
   }
+
+  private func setImgageWithUrl(view: UIImageView,data: PresentModel, index: Int) {
+    guard let photo = data.urlList?[safe: index] else {
+      view.isHidden = true
+      return
+    }
+    view.kf.setImage(with: URL(string: photo))
+    view.isHidden = false
+  }
+
+  private func setImgageWithImage(view: UIImageView,data: PresentModel, index: Int) {
+    guard let photo = data.imageList?[safe: index], photo != nil  else {
+      view.isHidden = true
+      return
+    }
+    view.image = photo
+    view.isHidden = false
+  }
 }
 
 extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
@@ -188,24 +206,6 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
 
   func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
       return UITableView.automaticDimension
-  }
-
-  func setImgageWithUrl(view: UIImageView,data: PresentModel, index: Int) {
-    guard let photo = data.urlList?[safe: index] else {
-      view.isHidden = true
-      return
-    }
-    view.kf.setImage(with: URL(string: photo))
-    view.isHidden = false
-  }
-
-  func setImgageWithImage(view: UIImageView,data: PresentModel, index: Int) {
-    guard let photo = data.imageList?[safe: index], photo != nil  else {
-      view.isHidden = true
-      return
-    }
-    view.image = photo
-    view.isHidden = false
   }
 }
 
