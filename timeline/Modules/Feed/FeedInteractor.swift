@@ -75,6 +75,10 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore
     guard let data = newPost else {
       return
     }
+    let edit = Edit.init(href: "")
+    let links = Links.init(linksSelf: edit, edit: edit)
+    let newAlbum = Album.init(id: "", userID: "", title: "", links: links, photos: nil)
+    albums?.result.insert(newAlbum, at: 0)
     let response = Feed.NewPost.Response(text: data.text, image1: data.image1, image2: data.image2, image3: data.image3)
     newPost = nil
     presenter?.presentNewPost(response: response)

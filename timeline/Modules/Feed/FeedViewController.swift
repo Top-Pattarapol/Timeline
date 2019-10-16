@@ -184,6 +184,10 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
 
   }
 
+  func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+      return UITableView.automaticDimension
+  }
+
   func setImgageWithUrl(view: UIImageView,data: PresentModel, index: Int) {
     guard let photo = data.urlList?[safe: index] else {
       view.isHidden = true
